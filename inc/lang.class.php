@@ -12,23 +12,28 @@ class lang {
     function loadModule($module) {
         $lang = $this->lang_source;
         $file = "include/modules/$module/$lang.lang.xml";
-        if (file_exists($file)) {            
-            $data = mb_convert_encoding(file_get_contents($file),'UTF-8');
-            $xml = simplexml_load_string($data);
-            $json = json_Encode($xml);
-            $jsono = json_decode($json,true);
-            $this->XML = $jsono;
+        if (file_exists($file)) {
+            $data = mb_convert_encoding(file_get_contents($file), 'UTF-8');
+            $xml = new SimpleXMLElement($data);
+            $this->XML = $xml;
         } else {
             echo "No existe el archivo";
         }
     }
 
-    public function getString($module, $section, $string, $lang = "") {
-        foreach($this->XML as $K=>$STR){
-        print_r($K);
-        echo "<hr noshade />";
-        print_r($STR);
+    public function getString($se, $str, $lang = "") {
+        foreach ($this->XML->sections->section as $section) {
+            if ($section["name"] == $se) {
+                $sel = $section;
+                break;
+            }
         }
+        foreach ($sel->string as $string) {
+            if ($string["name"] == $str) {
+                $output = $string;
+            }
+        }
+        return $output;
     }
 
 }

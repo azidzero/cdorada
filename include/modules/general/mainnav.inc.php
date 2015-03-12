@@ -13,10 +13,10 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <div class="pull-right">
                 <div style="display: inline-table;">
-                    <a HREF="./es/"><img src="images/flag/es.png" height="16" /></a>
-                    <a HREF="./en/"><img src="images/flag/en.png" height="16" /></a>
-                    <a HREF="./fr/"><img src="images/flag/fr.png" height="16" /></a>
-                    <a HREF="./ru/"><img src="images/flag/ru.png" height="16" /></a>
+                    <a HREF="./es/"><img src="images/flag/es.png" height="16" /> <?php echo utf8_decode($wlang->getString("navbar", "flag-es")); ?></a>
+                    <a HREF="./en/"><img src="images/flag/en.png" height="16" /> <?php echo utf8_decode($wlang->getString("navbar", "flag-en")); ?></a>
+                    <a HREF="./fr/"><img src="images/flag/fr.png" height="16" /> <?php echo utf8_decode($wlang->getString("navbar", "flag-fr")); ?></a>
+                    <a HREF="./ru/"><img src="images/flag/ru.png" height="16" /> <?php echo utf8_decode($wlang->getString("navbar", "flag-ru")); ?></a>
                 </div>
                 <div style="display: inline-table;">|</div>
                 <div style="display: inline-table;">

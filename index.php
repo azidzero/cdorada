@@ -5,7 +5,7 @@ include("inc/app.conf.php");
 <html lang="en">
     <head>
         <meta charset="UTF-8">        
-        <title><?php $wlang->getString($m,"header","title"); ?></title>
+        <title><?php $wlang->getString("header", "title"); ?></title>
 
         <base href="http://localhost/cdorada/">
 
@@ -20,9 +20,9 @@ include("inc/app.conf.php");
     <body>
         <?php
         include("include/modules/general/mainnav.inc.php");
-                
-        ?>
+        ?>        
         <div id="main" class="container-fluid">
+
             <div id="featured">
                 <div id="master_filter">
 
