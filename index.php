@@ -5,7 +5,7 @@ include("inc/app.conf.php");
 <html lang="en">
     <head>
         <meta charset="UTF-8">        
-        <title>Document</title>
+        <title><?php $wlang->getString($m,"header","title"); ?></title>
 
         <base href="http://localhost/cdorada/">
 
@@ -20,17 +20,23 @@ include("inc/app.conf.php");
     <body>
         <?php
         include("include/modules/general/mainnav.inc.php");
+                
         ?>
-        <div id="main" class="container-fluid">                        
+        <div id="main" class="container-fluid">
+            <div id="featured">
+                <div id="master_filter">
+
+                </div>
+
+            </div> 
             <?php
             /*
-            $f = "include/modules/$m/$s.inc.php";
-            if (file_exists($f)) {
-                include($f);
-            } else {
-                echo $f;
-            }*/
-            print_r($_REQUEST);
+              $f = "include/modules/$m/$s.inc.php";
+              if (file_exists($f)) {
+              include($f);
+              } else {
+              echo $f;
+              } */
             ?>                        
         </div>
     </body>

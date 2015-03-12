@@ -3,6 +3,8 @@
 /*
  * # Lenguaje del Sitio o sistema
  */
+include("lang.class.php");
+
 if (!isset($_REQUEST["lang"])) {
     header("Location:./es/");
 } else {
@@ -24,3 +26,8 @@ if (isset($_REQUEST["s"])) {
 } else {
     $s = "home";
 }
+/*
+ * 
+ */
+$wlang = new lang($lang);
+$wlang->loadModule($m);

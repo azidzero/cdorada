@@ -1,0 +1,14 @@
+<language name="es">
+    <sections>
+        <section name="header">
+            <string name="title">Planet Costa Dorada</string>
+        </section>
+        <section name="navbar">
+            <string name="flag-es">Español</string>
+            <string name="flag-en">Inglés</string>
+            <string name="flag-fr">Francés</string>
+            <string name="flag-ru">Ruso</string>
+        </section>
+        <section name="featured"></section>
+    </sections>
+</language>

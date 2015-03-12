@@ -1,0 +1,59 @@
+CONTACTOS
+    PROSPECTO
+        * Nombre
+        * Apellido Paterno
+        * Apellido Materno
+        * Telefono
+        * Correo Electronico
+        Sitio Web
+        Redes Sociales
+        Direccion
+        Etiquetas
+        Divisa
+        Descripcion
+    CLIENTES
+TAREAS
+    Titulo
+    Categoria de Tarea
+        LLAMADA TELEFONICA
+        OPORTUNIDAD
+        DEMOSTRACION
+        EMAIL
+        FAX
+        Control de Ejecucion
+        Almuerzo
+        Cita
+        Nota
+        Entrega
+        Redes Sociales
+        Expresion de Agradecimiento
+    Enlazar con contacto
+    Fecha Limite
+    Aviso
+    Asignar a
+    Descripcion de la Tarea
+    * Campos Adicionales
+OPORTUNIDADES
+    Titulo
+    Contacto de Oportunidad
+    Descripcion de Oportunidad
+    Presupuesto
+    Fecha Limite del acuerdo estimado
+    Persona Responsable de la Oportunidad
+    Oportunidad en la etapa:
+        Contacto Inicial
+        Cliente potencial
+        Aplicacion de criterios de ajustes iniciales
+        Identificacion requerida
+        calificacion
+        propuesta
+        Negociacion
+        Cierre/Transaccion
+        Cierre sin Exito
+    Probabilidad de Exito(%)
+    * Campos adicionales
+CASOS
+    Titulo
+    Participantes
+    Etiquetas
+    * Campos Adicionales
