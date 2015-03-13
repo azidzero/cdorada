@@ -1,18 +1,14 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-$mod = new MODULE;
-$mod->url = "warehouse";
-$mod->name = "Almac&eacute;n";
-$mod->icon = "cubes";
-
-$mod->addSection("Almacenes", "store", "building");
-$mod->addOption("store", "Nuevo", 0, "plus");
+$mod = new MODULE;  // Se declara un nuevo modulo
+$mod->url = "warehouse";    // url que usara
+$mod->name = "Almac&eacute;n";  // Nombre visible al usuario
+$mod->icon = "cubes";           // Icono, esto lo cambiare a arreglo, para que indique si es un icono de fontawesome o imagen
+// # Hasta aqui ./?m={warehouse}
+$mod->addSection("Almacenes", "store", "building");     // Nueva seccion: Nombre,url,icono o imagen
+// # Hasta aqui ./?m={warehouse}&s={store}
+$mod->addOption("store", "Nuevo", 0, "plus");           // Nueva Opcion: seccion,nombre,url,icono
+// # Hasta aqui ./?m={warehouse}&s={store}&o={0}
 $mod->addOption("store", "Administrar", 2, "table");
 
 $mod->addSection("Categor&iacute;as", "cat", "tags");
@@ -38,3 +34,8 @@ $mod->addSection("Transporte", "carriage", "truck");
 $mod->addOption("carriage", "Nuevo", 0, "plus");
 $mod->addOption("carriage", "Administrar", 2, "table");
 
+/*
+MODULE[warehouse]
+    SECTION[store]
+        OPTION[0]
+ */

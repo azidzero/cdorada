@@ -9,6 +9,18 @@
             <string name="flag-en">Inglés</string>
             <string name="flag-fr">Francés</string>
             <string name="flag-ru">Ruso</string>
+            <string name="social-facebook">Facebook</string>
+            <string name="social-twitter">Twitter</string>
+            <string name="social-youtube">You Tube</string>
+            <string name="social-google-plus">Google Plus</string>
+            <string name="menu-home">Inicio</string>
+            <string name="menu-rent">Alquiler</string>
+            <string name="menu-sale">Venta</string>
+            <string name="menu-deal">Ofertas</string>
+            <string name="menu-owner">Propietarios</string>
+            <string name="menu-about">Conócenos</string>
+            <string name="menu-content">Contenido</string>
+            <string name="menu-contact">Contacto</string>
         </section>
         <section name="featured"></section>
         <section name="rent"></section>

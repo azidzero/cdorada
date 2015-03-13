@@ -31,7 +31,7 @@ body{background-size: cover ;color:#2C3E50;font-family: "Raleway",sans-serif;fon
 #subnav{background:rgba(231,76,60,0.85);padding:2px;min-height: 48px;}
 #subnav .nav li a{color:#FFF;transition: background 0.5s}
 #subnav .nav li:hover a{background:#C0392B;}
-@media (max-width:720px){    
+@media (max-width:720px){
     #navbar{height:auto;}
     #navbar .sb-text{display: inline;}
     #sidebar .nav li a{text-align: center;}
