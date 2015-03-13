@@ -31,9 +31,10 @@ class lang {
         foreach ($sel->string as $string) {
             if ($string["name"] == $str) {
                 $output = $string;
+                break;
             }
         }
-        return $output;
+        return utf8_decode($output);
     }
 
 }

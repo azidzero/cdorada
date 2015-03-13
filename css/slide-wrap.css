@@ -1,0 +1,43 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+}
+/*
+HEADER
+*/
+#header{
+    top:0px;
+    background:#3498DB;
+    position:fixed;
+    height: 48px;
+    display:block;
+    width: 100%;    
+    z-index:9;
+    text-align:center;
+    color: #f2f2f2;
+    padding: 0px 0 0 0;
+}
+#header .container{
+    padding:4px;
+}
+#header ul.nav {padding-top:2px;}
+#header ul.nav a{font-family: 'Open sans condensed',sans-serif;color:#FFF;font-size: 11pt;font-weight: 900;}
+#header ul.nav-lang,#header ul.nav-social {margin:0px;padding:0px;}
+#header ul.nav-lang li,#header ul.nav-social li{margin:0px;padding:0px;}
+#header ul.nav-lang a,#header ul.nav-social a{font-family: 'Open sans condensed',sans-serif;color:#FFF;font-size: 11pt;font-weight: 300;margin:0px;padding:4px;}
+#header ul.nav li:hover a{background-color:#2980B9;color:#FFF;}
+/*
+LOGO
+*/
+#logo{
+    margin-top:0px;
+    margin-left: 4px;
+    float:left;
+    padding:8px;
+    border-radius: 6px;
+}
+
+#home{
+    background-color:#16A085;
+    color:#1ABC9C;
+}

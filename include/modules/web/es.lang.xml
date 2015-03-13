@@ -2,6 +2,7 @@
     <sections>
         <section name="header">
             <string name="title">Planet Costa Dorada</string>
+            <string name="responsive-menu">Alternar navegación</string>
         </section>
         <section name="navbar">
             <string name="flag-es">Español</string>
@@ -10,5 +11,16 @@
             <string name="flag-ru">Ruso</string>
         </section>
         <section name="featured"></section>
+        <section name="rent"></section>
+        <section name="sale"></section>
+        <section name="deal"></section>
+        <section name="owner"></section>
+        <section name="owner"></section>
+        <section name="about">
+            <string name=""></string>
+        </section>
+        <section name="contact">
+            <string name="atencion-titulo">Horario de Atención</string>
+        </section>
     </sections>
 </language>
