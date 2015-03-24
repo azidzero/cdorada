@@ -34,5 +34,8 @@
         <section name="contact">
             <string name="atencion-titulo">Horario de Atención</string>
         </section>
+        <section name="search">
+            <string name="title">Busqueda</string>
+        </section>
     </sections>
 </language>

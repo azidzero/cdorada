@@ -1,0 +1,15 @@
+<language name="es">
+    <sections>
+        <section name="search">
+            <string name="title">Busqueda</string>            
+        </section>
+        <section name="filter">
+            <string name="txt_field_a">Entrada</string>
+            <string name="txt_field_b">Salida</string>
+            <string name="txt_field_c">Ocupantes</string>
+            <string name="txt_field_d">Dormitorios</string>
+            <string name="txt_field_e">Capacidad</string>
+            <string name="txt_field_f">Localizacion</string>
+        </section>        
+    </sections>
+</language>

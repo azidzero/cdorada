@@ -1,6 +1,6 @@
 RewriteEngine On
 Options  FollowSymLinks
-RewriteBase /cdorada
+#RewriteBase /
 #RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
