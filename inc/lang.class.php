@@ -8,7 +8,9 @@ class lang {
     function __construct($lang) {
         $this->lang_source = $lang;
     }
-
+    function getAbrv(){
+        return $this->lang_source;
+    }
     function loadModule($module) {
         $lang = $this->lang_source;
         $file = "include/modules/$module/$lang.lang.xml";
@@ -17,7 +19,7 @@ class lang {
             $xml = new SimpleXMLElement($data);
             $this->XML = $xml;
         } else {
-            echo "No existe el archivo";
+            $file = "include/modules/$module/es.lang.xml";
         }
     }
 
@@ -33,7 +35,7 @@ class lang {
                 $output = $string;
                 break;
             }
-        }
+        }        
         return utf8_decode($output);
     }
 

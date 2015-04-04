@@ -1,31 +1,31 @@
 <language name="ES">
     <setup>
-        <string name="ISO">ES-ES</string>
-        <string name="abbr">ES</string>
-        <string name="locale">Español</string>
+        <string name="ISO">ES-US</string>
+        <string name="abbr">EN</string>
+        <string name="locale">English</string>
     </setup>
     <sections>
         <section name="header">
             <string name="title">Planet Costa Dorada</string>
-            <string name="responsive-menu">Alternar navegación</string>
+            <string name="responsive-menu">Toggle Navigation</string>
         </section>
         <section name="navbar">
-            <string name="flag-es">Español</string>
-            <string name="flag-en">Inglés</string>
-            <string name="flag-fr">Francés</string>
-            <string name="flag-ru">Ruso</string>
+            <string name="flag-es">Spanish</string>
+            <string name="flag-en">English</string>
+            <string name="flag-fr">French</string>
+            <string name="flag-ru">Russian</string>
             <string name="social-facebook">Facebook</string>
             <string name="social-twitter">Twitter</string>
             <string name="social-youtube">You Tube</string>
             <string name="social-google-plus">Google Plus</string>
-            <string name="menu-home">Inicio</string>
-            <string name="menu-rent">Alquiler</string>
-            <string name="menu-sale">Venta</string>
-            <string name="menu-deal">Ofertas</string>
-            <string name="menu-owner">Propietarios</string>
-            <string name="menu-about">Conócenos</string>
-            <string name="menu-content">Contenido</string>
-            <string name="menu-contact">Contacto</string>
+            <string name="menu-home">Home</string>
+            <string name="menu-rent">Rent</string>
+            <string name="menu-sale">Sale</string>
+            <string name="menu-deal">Deal</string>
+            <string name="menu-owner">Owner</string>
+            <string name="menu-about">About</string>
+            <string name="menu-content">Content</string>
+            <string name="menu-contact">Contact</string>
         </section>
         <section name="featured"></section>
         <section name="rent"></section>

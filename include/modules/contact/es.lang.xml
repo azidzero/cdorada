@@ -1,9 +1,4 @@
-<language name="ES">
-    <setup>
-        <string name="ISO">ES-ES</string>
-        <string name="abbr">ES</string>
-        <string name="locale">Español</string>
-    </setup>
+<language name="es">
     <sections>
         <section name="header">
             <string name="title">Planet Costa Dorada</string>
