@@ -93,12 +93,3 @@ section{
 @media(max-width:640px){
     .su{width:98%;top:128px;}
 }
-
-/*
-NEW
-*/
-.input-date{
-    
-    height:36px;
-    background:rgba(255,255,255,0.9) url(../images/ui/calendar.png) no-repeat center right;
-}
