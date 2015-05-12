@@ -1,15 +1,17 @@
 <?php
 
 /*
- * # Base de Datos
+ * # ERROR REPORTING
  */
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
+/*
+ * # Base de Datos
+ */
 define("DBH", "localhost");
 define("DBU", "root");
 define("DBP", "0df3f389");
-define("DBB", "siga_quiro");
+define("DBB", "cdorada");
 $CNN = mysqli_connect(DBH, DBU, DBP, DBB);
 // Definiciones Comunes
 include("common.def.php");
@@ -36,3 +38,7 @@ if (isset($_REQUEST["o"])) {
 } else {
     $o = 0;
 }
+
+$CORE = new CORE($m, $s, $o, $CNN);
+$CORE->loadModule();
+$mods = $CORE->getModules();

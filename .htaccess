@@ -4,13 +4,15 @@ Options  FollowSymLinks
 #RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-# EXCLUDES
 # LANG + MODULE + SECTION
 RewriteCond %{REQUEST_URI} !^/?(cms|crm|crs)/
-RewriteRule ^([a-zA-Z]+)/([a-zA-Z]+)/([a-zA-Z]+)$ /cdorada/index.php?lang=$1&m=$2&s=$3 [L,NC]
+RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/(.*)$ /cdorada/index.php?lang=$1&m=$2&s=$3&o=$4 [L,NC]
+# LANG + MODULE + SECTION
+RewriteCond %{REQUEST_URI} !^/?(cms|crm|crs)/
+RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$ /cdorada/index.php?lang=$1&m=$2&s=$3 [L,NC]
 # LANG + MODULE
 RewriteCond %{REQUEST_URI} !^/?(cms|crm|crs)/
-RewriteRule ^([a-zA-Z]+)/([a-zA-Z]+)$ /cdorada/index.php?lang=$1&m=$2 [L,NC]
+RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$ /cdorada/index.php?lang=$1&m=$2 [L,NC]
 # LANG
 RewriteCond %{REQUEST_URI} !^/?(cms|crm|crs)/
-RewriteRule ^([a-zA-Z]+)/$ /cdorada/index.php?lang=$1 [L,NC]
+RewriteRule ^([a-zA-Z0-9]+)/$ /cdorada/index.php?lang=$1 [L,NC]

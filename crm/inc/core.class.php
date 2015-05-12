@@ -20,9 +20,6 @@ class CORE {
         $this->a_s = $s;
         $this->a_o = $o;
         $this->CNN = $SQL;
-        $this->theme = new theme($this);
-        $this->loadModule();
-        $this->theme->loader();
     }
 
     function loadModule() {

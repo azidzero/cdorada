@@ -20,9 +20,6 @@ class CORE {
         $this->a_s = $s;    // Actual Seccion
         $this->a_o = $o;    // Actual opcion
         $this->CNN = $SQL;  // Nuestra conexion a MySQL
-        $this->theme = new theme($this);    // Tema a cargar, es la plantilla que va a dar todo el contenido que vemos
-        $this->loadModule();                // Carga de modulos disponibles
-        $this->theme->loader();
     }
 
     function loadModule() {
@@ -38,6 +35,10 @@ class CORE {
                 }
             }
         }
+    }
+
+    function getModules() {
+        return $this->modules;
     }
 
     public function getTopNav($css) {
@@ -59,7 +60,7 @@ class CORE {
 
     public function getSidebar($css) { // #Sidebar
         echo "<ul class=\"$css\">"; // Declaracion de la seccion, cargamos una clase para el sidebar
-        $ss = $this->modules[$this->a_m]->getSection();// De los modulos cargados, tomamos el actual, y solicitamos las secciones
+        $ss = $this->modules[$this->a_m]->getSection(); // De los modulos cargados, tomamos el actual, y solicitamos las secciones
         foreach ($ss as $section) { // Por cada una de las secciones
             if ($this->a_s == $section["url"]) { // Verificamos si es la seccion actual
                 echo "<li class=\"active\">";
@@ -68,10 +69,10 @@ class CORE {
             }
             if ($section["url"] == $this->a_s) { // Aqui ponemos las opciones para si estara abierto el nodo o cerrado
                 $aria = "true";
-                $in="in";
+                $in = "in";
             } else {
                 $aria = "false";
-                $in="";
+                $in = "";
             }
             //       [                                    ] seccion para decir que este sera en trigger para mostrar las opciones
             echo "<a aria-controls=\"sm_{$section["url"]}\" data-toggle=\"collapse\" href=\"#sm_{$section["url"]}\">";

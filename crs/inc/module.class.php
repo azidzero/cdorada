@@ -14,13 +14,13 @@ class MODULE {
     private $section = Array();
 
     function __construct() {
-        $this->addSection("Inicio", "home", "home");
-        $this->addOption("home", "", 0, "dashboard");
+        //$this->addSection("Inicio", "home", "home");
+        //$this->addOption("home", "", 0, "dashboard");
     }
 
     private $option = Array();
 
-    function addSection($name, $url, $icon) {
+    function addSection($name, $url, $icon = "default") {
         $arr = Array("name" => $name, "url" => $url, "icon" => $icon);
         $this->section[] = $arr;
     }
@@ -35,8 +35,10 @@ class MODULE {
     }
 
     function getOption($section) {
-        if(isset($this->option[$section])){
+        if (isset($this->option[$section])) {
             return $this->option[$section];
+        }else{
+            return false;
         }
     }
 
