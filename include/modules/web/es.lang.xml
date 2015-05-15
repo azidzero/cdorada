@@ -1,40 +1,53 @@
-<language name="ES">
-    <setup>
-        <string name="ISO">ES-ES</string>
-        <string name="abbr">ES</string>
-        <string name="locale">Español</string>
-    </setup>
+<language name="ES" iso="ES-ES" locale="Espanol">        
     <sections>
         <section name="header">
-            <string name="title">Planet Costa Dorada</string>
-            <string name="responsive-menu">Alternar navegación</string>
+            <string name="title">Planet Costa Dorada</string>            
         </section>
         <section name="navbar">
+            <string name="responsive-menu">Alternar navegación</string>		
+            <string name="alt-logo">Planet Costa Dorada</string>		
             <string name="flag-es">Español</string>
-            <string name="flag-en">Inglés</string>
-            <string name="flag-fr">Francés</string>
-            <string name="flag-ru">Ruso</string>
+            <string name="flag-en">English</string>
+            <string name="flag-fr">Français</string>
+            <string name="flag-ru">русский</string>
             <string name="social-facebook">Facebook</string>
             <string name="social-twitter">Twitter</string>
             <string name="social-youtube">You Tube</string>
             <string name="social-google-plus">Google Plus</string>
             <string name="menu-home">Inicio</string>
+            <string name="menu-property">Propiedades</string>
             <string name="menu-rent">Alquiler</string>
             <string name="menu-sale">Venta</string>
             <string name="menu-deal">Ofertas</string>
             <string name="menu-owner">Propietarios</string>
-            <string name="menu-about">Conócenos</string>
-            <string name="menu-content">Contenido</string>
+            <string name="menu-content">Actividades</string>
+            <string name="menu-info">Info Viaje</string>
+            <string name="menu-about">Empresa</string>            
             <string name="menu-contact">Contacto</string>
         </section>
-        <section name="featured"></section>
-        <section name="rent"></section>
-        <section name="sale"></section>
-        <section name="deal"></section>
+        <section name="home">
+            <string name="show-more">Ver Más</string>
+        </section>
+        <section name="filter">
+            <string name="title">Filtro</string>
+            <string name="all-users">Todos</string>
+            <string name="all-mode">Todos</string>
+            <string name="all-type">Todos</string>
+            <string name="placeholder-locate">Seleccionar destino</string>
+            <string name="range">Con un costo entre </string>
+            <string name="filter-rent">en Alquiler</string>
+            <string name="filter-sale">en Venta</string>
+            <string name="filter-deal">en Oferta</string>
+            <string name="search-button">Buscar</string>
+            <string name="search-property">Estoy buscando propiedades </string>
+        </section>        
+        <section name="property">
+            <string name="name">Alquiler</string>
+        </section>        
         <section name="owner"></section>
-        <section name="owner"></section>
+        <section name="content"></section>
         <section name="about">
-            <string name=""></string>
+            
         </section>
         <section name="contact">
             <string name="atencion-titulo">Horario de Atención</string>
@@ -43,4 +56,7 @@
             <string name="title">Busqueda</string>
         </section>
     </sections>
+    <modules>
+        
+    </modules>
 </language>

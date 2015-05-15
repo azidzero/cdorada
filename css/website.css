@@ -177,19 +177,21 @@ section h3{font-size:28pt;color:#000;}
 #property{
     transition: padding-left 0.5s,transform 0.5s;
     position: relative;
+    overflow: hidden;
+    width:100%;
+    height:100%;
+    min-height: 640px;
 }
-#result-property{
-    transition: padding-left 0.5s,transform 0.5s,background 0.5s, margin-top 0.5s;
-    position: relative;
+#pmain{z-index: 1;position: absolute;}
+#result-property, #result-map{
+    z-index: 0;
+    top:0px;
+    width:100%;
+    position: absolute;
+    transition: padding-left 0.5s,transform 0.5s,background 0.5s, margin-top 0.5s,left 0.5s;    
 }
-.strip_roll .row-fluid .block{
-    overflow-y: hidden;
-    white-space: nowrap;    
-    display: inline-block;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    padding:4px;    
-}
+#result-property{left:0px;}
+#result-map{left:100%;}
 .home_block{ 
     margin:4px;
     white-space: normal;
@@ -372,7 +374,7 @@ section#contact #contact_data .input-group-addon{
     height:100%;
     z-index: 1;
     transition: left 0.5s;
-    padding-top:24px;
+    padding-top:110px;
 }
 .pushmenu .input-group .input-group-addon{   
     padding:2px;

@@ -21,7 +21,7 @@
 </div>
 <script>
     $(document).ready(function () {
-        var h = $(window).height();
-        $('.slider-content ul li').height(h + "px");
+        // var h = $(window).height();
+        // $('.slider-content ul li').height(h + "px");
     });
 </script>

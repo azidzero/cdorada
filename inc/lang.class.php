@@ -1,16 +1,16 @@
 <?php
 
 class lang {
-
     private $lang_source;
     private $XML;
-
     function __construct($lang) {
         $this->lang_source = $lang;
     }
-    function getAbrv(){
+
+    function getAbrv() {
         return $this->lang_source;
     }
+
     function loadModule($module) {
         $lang = $this->lang_source;
         $file = "include/modules/$module/$lang.lang.xml";
@@ -23,7 +23,8 @@ class lang {
         }
     }
 
-    public function getString($se, $str, $lang = "") {
+    public function getString($se, $str, $lang) {
+        $output = "";
         foreach ($this->XML->sections->section as $section) {
             if ($section["name"] == $se) {
                 $sel = $section;
@@ -35,7 +36,7 @@ class lang {
                 $output = $string;
                 break;
             }
-        }        
+        }
         return utf8_decode($output);
     }
 

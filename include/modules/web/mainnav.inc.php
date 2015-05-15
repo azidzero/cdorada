@@ -1,47 +1,52 @@
-<div id="main-nav" class="navbar navbar-fixed-top navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only"><?php $wlang->getString("header", "responsive-menu"); ?></span>
+        <div class="navbar-header" style="width:100%;">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse">
+                <span class="sr-only"><?php echo $wlang->getString('navbar', 'responsive-menu'); ?></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#" style="margin:0px;padding:0px;"><img src="images/logo.png" width="320" alt="" /></a>
         </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <div class="pull-right">
-                <div style="display: inline-table;">
-                    <a HREF="./es/"><img src="images/flag/es.png" height="16" /> <?php echo utf8_decode($wlang->getString("navbar", "flag-es")); ?></a>
-                    <a HREF="./en/"><img src="images/flag/en.png" height="16" /> <?php echo utf8_decode($wlang->getString("navbar", "flag-en")); ?></a>
-                    <a HREF="./fr/"><img src="images/flag/fr.png" height="16" /> <?php echo utf8_decode($wlang->getString("navbar", "flag-fr")); ?></a>
-                    <a HREF="./ru/"><img src="images/flag/ru.png" height="16" /> <?php echo utf8_decode($wlang->getString("navbar", "flag-ru")); ?></a>
-                </div>
-                <br/>
-                <div style="" id="social-menu">
-                    <a HREF="./es/"><i style="font-size: 20px" class="fa fa-facebook-square"></i></a>                            
-                    <a HREF="./es/"><i style="font-size: 24px" class="fa fa-twitter-square"></i></a>                            
-                    <a HREF="./es/"><i style="font-size: 24px" class="fa fa-youtube-square"></i></a>                            
-                    <a HREF="./es/"><i style="font-size: 24px" class="fa fa-google-plus-square"></i></a>                            
-                </div>
-            </div>
-            <div>
-                <ul class="nav navbar-nav">
-                    <li><a href="#">Alquiler</a></li>
-                    <li><a href="#">Venta</a></li>
-                    <li><a href="#">Ofertas</a></li>
-                    <li><a href="#">Propietarios</a></li>
-                    <li><a href="#">Quienes somos</a></li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle='dropdown' href='#'>M&aacute;s contenido <i class="caret"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href='#'>Paginas Secundarias</a></li>
-                        </ul>
-                    </li>
-                    <li><a href='#'>Contacto</a></li>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="nav-collapse">
+            <div id="top_brand">
+                <a class="navbar-brand" href="#">
+                    <img src="images/logo.png" style="height:70px;" alt="<?php echo $wlang->getString('navbar', 'alt-logo'); ?>" />
+                </a>
+                <ul class="nav navbar-nav navbar-right social">
+                    <li><span class="slogan"><i>Alquiler T&uacute;ristico en la Costa Dorada</i></span></li>
+                    <?php
+                    if(isset($_REQUEST["m"])){ $url.="$m/";}
+                    if(isset($_REQUEST["s"])){ $url.="$s/";}
+                    if(isset($_REQUEST["o"])){ $url.="$o";}
+                    ?>
+                    <li><a href="./en/<?php echo $url;?>"><img src="images/flag/EN.png" width="18" /> <?php echo $wlang->getString('navbar', 'flag-en'); ?></a></li>                                
+                    <li><a href="./es/<?php echo $url;?>"><img src="images/flag/ES.png" width="18" /> <?php echo $wlang->getString('navbar', 'flag-es'); ?></a></li>                                
+                    <li><a href="./fr/<?php echo $url;?>"><img src="images/flag/FR.png" width="18" /> <?php echo $wlang->getString('navbar', 'flag-fr'); ?></a></li>                                
+                    <li><a href="./ru/<?php echo $url;?>"><img src="images/flag/RU.png" width="18" /> <?php echo $wlang->getString('navbar', 'flag-ru'); ?></a></li>
+                    <li><a href="#"><img src="images/social/facebook.png" width="24" /></a></li>
+                    <li><a href="#"><img src="images/social/gplus.png" width="24" /></a></li>
+                    <li><a href="#"><img src="images/social/twitter.png" width="24" /></a></li>
+                    <li><a href="#"><img src="images/social/youtube.png" width="24" /></a></li>
                 </ul>
+                <div style="position: absolute;bottom:0px;right:0px;padding:6px;color:#F60;text-transform: none;">
+                    0034 977 395 854 / info@planetgoldholidays.com
+                </div>
             </div>
-        </div>
-    </div>                
-</div>
+            <div id="top_menu">                
+                <ul class="nav navbar-nav" style="margin-left:102px;width:80%;">
+                    <li class="active"><a data-url='home' href="javascript:void(0)" onclick="goto('home')"><?php echo $wlang->getString('navbar', 'menu-home'); ?></a></li>                       
+                    <li><a data-url='property' href="javascript:void(0)" onclick="goto('property')"><?php echo $wlang->getString('navbar', 'menu-rent'); ?></a></li>
+                    <li><a data-url='deal' href="javascript:void(0)" onclick="goto('deal')"><?php echo $wlang->getString('navbar', 'menu-deal'); ?></a></li>
+                    <li><a data-url='owner' href="javascript:void(0)" onclick="goto('owner')"><?php echo $wlang->getString('navbar', 'menu-owner'); ?></a></li>                                           
+                    <li><a data-url='content' href="javascript:void(0)" onclick="goto('content')"><?php echo $wlang->getString('navbar', 'menu-content'); ?></a></li>                       
+                    <li><a data-url='content' href="javascript:void(0)" onclick="goto('info')"><?php echo $wlang->getString('navbar', 'menu-info'); ?></a></li>                       
+                    <li><a data-url='about' href="javascript:void(0)" onclick="goto('about')"><?php echo $wlang->getString('navbar', 'menu-about'); ?></a></li>                       
+                    <li><a data-url='contact' href="javascript:void(0)" onclick="goto('contact')"><?php echo $wlang->getString('navbar', 'menu-contact'); ?></a></li>                       
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </div>
+</nav>

@@ -1,23 +1,26 @@
-<section id="content" class="section" style="background-image:url('cms/content/upload/item_000006.jpg')">        
-    <div class="container">
-        <h4>Contenido</h4>
-        <div class="row">
-            <div class="col-sm-3">
-                <img data-src="holder.js/100%x160/social" class="img-responsive img-rounded" />
-                <h4>Titulo Publicacion</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tristique pharetra risus at scelerisque. Duis tempor pretium quam ut egestas. Nam molestie dolor et felis posuere tristique. Quisque eu odio mollis, semper tellus id, facilisis ligula. Nunc tristique efficitur placerat. Phasellus nulla metus, volutpat vitae sagittis ut, luctus vitae metus. Aliquam vehicula libero nec lacus blandit commodo vel sit amet diam. Integer feugiat ac est a commodo. In egestas quis enim in gravida. Nullam a suscipit mi, sed porttitor augue. Vestibulum maximus libero velit, non ultricies metus condimentum ac. Aliquam ut facilisis dui. Etiam vitae vulputate odio.</p>
-                <a href="#" class="btn btn-warning">Ver M&aacute;s</a>
+<section id="content" class="blog" style="background-image:url('cms/content/upload/item_000006.jpg')">
+    <h3>BLOG</h3>
+    <div class="blog" style="padding:0px;margin:0px;">
+        <?php
+        for ($i = 0; $i < 8; $i++) {
+
+            $ref = str_pad(rand(1, 6), 6, "0", STR_PAD_LEFT);
+            $oid = "cms/content/upload/item_" . $ref . ".jpg";
+            ?>
+            <div class="post">
+                <div class="post-container" style="background-image: url('<?php echo $oid; ?>');">
+                    <div><small class="label label-danger">ETC...</small><br/>
+                        <small class="label label-info">{<?php echo date("Y-m-d"); ?>}</small></div>
+                    <a href="./<?php echo $lang;?>/actividades/actividad/<?php echo $i;?>">
+                        <h3>
+                            {blog_title}                                                                       
+                        </h3>               
+                    </a> 
+
+                </div>
             </div>
-            <div class="col-sm-3">
-                <h1></h1>
-            </div>
-            <div class="col-sm-3">
-                <h1></h1>
-            </div>
-            <div class="col-sm-3">
-                <h1></h1>
-            </div>
-        </div>
-        <a href="#" class="btn btn-default btn-lg pull-right">Ver todas las publicaciones</a>
+            <?php
+        }
+        ?>
     </div>
 </section>
