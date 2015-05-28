@@ -1,5 +1,5 @@
 function goto(id) {
-    var a = $('#' + id).offset().top - 12;
+    var a = $('#' + id).offset().top - 114;
     $('.navbar-nav li').removeClass('active');
     var x = $.data(document.body, 'url', id);
     $("html, body").animate({scrollTop: a}, 1000);
@@ -60,10 +60,10 @@ function doSearch(id) {
     var amount = $('#group-' + id).val();
     var tipo = $('#tipo-' + id).val();
     var place = $('#place-' + id).val();
-
+    var lang = getUrlVars()["lang"];
     $.ajax({
         methos: 'POST',
-        url: 'http://www.elquirofano.com.mx:8080/cdorada/include/modules/web/search.home.php?lang=<?php echo $lang;?>',
+        url: "/cdorada/include/web/web/search.home.php?lang="+lang,
         data: {
             i: id, // Section
             ra: range_a, // Range A
@@ -108,6 +108,13 @@ function modale(id) {
     }
 }
 
-function resize(){
+function resize() {
     // $('section').css('min-height', $(window).height() * 0.8 + 'px');        
+}
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
 }

@@ -15,7 +15,7 @@ class MODULE {
 
     function __construct() {
         $this->addSection("Inicio", "home", "home");
-        $this->addOption("home", "", 0, "dashboard");
+        // $this->addOption("home", "", 0, "dashboard");
     }
 
     private $option = Array();
@@ -25,7 +25,7 @@ class MODULE {
         $this->section[] = $arr;
     }
 
-    function addOption($section, $name, $url, $icon) {
+    function addOption($section, $name, $url, $icon = '') {
         $arr = Array("name" => $name, "url" => $url, "icon" => $icon);
         $this->option[$section][] = $arr;
     }
@@ -35,7 +35,7 @@ class MODULE {
     }
 
     function getOption($section) {
-        if(isset($this->option[$section])){
+        if (isset($this->option[$section])) {
             return $this->option[$section];
         }
     }

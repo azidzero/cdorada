@@ -5,7 +5,6 @@
  */
 
 include("lang.class.php");
-
 if (!isset($_REQUEST["lang"])) {
     header("Location:./es/");
 } else {
@@ -23,14 +22,28 @@ if (isset($_REQUEST["m"])) {
  * Seccion del Modulo
  */
 if (isset($_REQUEST["s"])) {
-    $s = $_REQUEST["s"];
+    if ($m == 'buscar') {
+        $s = "search";
+        $_REQUEST["what"] = $_REQUEST["s"];
+    } else {
+        $s = $_REQUEST["s"];
+    }
 } else {
-    $s = "home";
+    if ($m == 'buscar') {
+        $s = "search";
+    } else {
+        $s = "home";
+    }
 }
 if (isset($_REQUEST["o"])) {
     $o = $_REQUEST["o"];
 } else {
     $o = "0";
+}
+if ($m != "web") {
+    $include = "include/modules/";
+} else {
+    $include = "include/web/";
 }
 /*
  * BASE DE DATOS
@@ -45,4 +58,8 @@ $CNN = mysqli_connect(DBH, DBU, DBP, DBB);
 $wlang = new lang($lang);
 $wlang->loadModule($m);
 setcookie("lang", $lang);
+
+include("web.class.php"); /* Common Functions */
 include("common.func.php"); /* Common Functions */
+
+$web = new web($CNN);

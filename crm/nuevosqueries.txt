@@ -1,0 +1,34 @@
+SELECT * FROM tickets GROUP BY id_ticket DESC;
+
+SELECT a.id_Ticketlinea AS id, a.Producto, a.Precio, 0, a.Cantidad, c.CantidadPagada,
+(a.Cantidad * a.Precio) AS Total FROM ticketlineas a 
+INNER JOIN tickets b ON (a.id_ticket = b.id_ticket)
+INNER JOIN pedidoslineas c ON (b.idpedido = c.idpedido)
+WHERE b.Id_Mesa = 120
+AND b.impreso = 'SI'
+AND c.idpedido = 3684;
+
+SELECT a.idpedido AS ID, a.Articulos, b.Costo AS Precio, 
+a.CostoPromo, (a.Cantidad - a.CantidadPagada) AS Cantidad, 
+((a.Cantidad - a.CantidadPagada) * b.Costo) AS Total FROM pedidoslineas a
+INNER JOIN articulos b ON (a.IdArticulo = b.Id_Articulos)
+INNER JOIN pedidos c ON (a.idpedido = c.idpedidos)
+WHERE c.id_mesa = 120
+AND c.Pagado = 'NO';
+
+
+SELECT Activo FROM mesas WHERE idmesa = 120;
+
+SELECT * FROM pedidos GROUP BY idpedidos DESC;
+
+SELECT * FROM pedidoslineas ORDER BY idpedido DESC;
+
+UPDATE pedidos SET pagado = 'SI' WHERE idpedidos = 3691
+
+UPDATE pedidoslineas SET cantidadpagada =  WHERE idpedidos = 3691;
+
+SELECT GetFolio('AAA010101AAA');
+
+
+
+SELECT * FROM secuencias

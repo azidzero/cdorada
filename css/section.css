@@ -1,37 +1,42 @@
 /*
 @content
 */
-.blog{
-    
+.post-area{
+    padding:0px;margin:0px;
 }
 .post{
     float:left;
     margin-bottom: 8px;
     font-size:9pt;
     padding:8px;    
-    border-bottom: 1px solid rgba(0,0,0,0.25);
+    border-bottom: 1px solid rgba(0,0,0,0.75);
+    position: relative;
 }
-.post-left{    
-    float:left;
-    width:33%;
-    padding:4px;
-    line-height: 2em;
+.post-background{
+    position: absolute;
+    top:0px;
+    left:0px;
+    z-index: 1;
+    width:100%;
+    height:100%;
+    background-size: cover;
 }
-.post-right{
-    width:66%;
-    float:right;
-    text-align: justify;
+.post-body{
+    position: absolute;
+    width:100%;
+    height:100%;
+    top:0px;
+    right:0px;
+    z-index:2;
 }
-.post-right .btn{
-    background:transparent;
-    color:#2C3E50;
-    border:none;
-    border-top:2px solid #2C3E50;
-    border-radius: 0px;
+.post-body a h3{
+    padding:8px;
+    color:#FFF;
+    background:rgba(0,0,0,0.33);
+    text-shadow: 0px 1px 1px rgba(0,0,0,0.85);
+    font-size: 16pt;
 }
-.post-right .btn:hover{
-    color:#F60;
-}
+
 .post-cat{
     padding:2px;
     background-color:#2C3E50;
@@ -84,7 +89,7 @@
     padding-left: 4px;
     padding-right: 4px;
     font-size: 8pt;
-    
+
 }
 .badge-ok{
     background:rgba(44,62,80,0.9);

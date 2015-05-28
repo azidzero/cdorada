@@ -1,0 +1,12 @@
+#------------------------------------
+# Team
+#------------------------------------
+
+Jose de Jesus Garcia Estrada / jesus_garcia@quiroti.com.mx / twitter.com/azidzero
+
+#------------------------------------
+# Technology
+#------------------------------------
+
+Standards: HTML5, CSS3, Javascript, PHP, MySQL
+Components: Bootstrap, JQuery, 

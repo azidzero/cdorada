@@ -3,10 +3,10 @@
  */
 $(document).ready(function () {
     /*
-    var t = new Trianglify();
-    var pattern = t.generate(640, 480);
-    document.body.setAttribute('style', 'background-image: ' + pattern.dataUrl);
-    */
+     var t = new Trianglify();
+     var pattern = t.generate(640, 480);
+     document.body.setAttribute('style', 'background-image: ' + pattern.dataUrl);
+     */
 });
 /*
  * 

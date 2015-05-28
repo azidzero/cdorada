@@ -1,0 +1,49 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20/05/2015, 11:52:07 AM
+    Author     : JosedeJesus
+*/
+
+.input-group{
+    width:100%;    
+}
+.input-group .form-control{
+    height:37px;
+}
+.label-invert{
+    background:rgba(0,0,0,0.85);
+}
+.pagination li a{color:#15C;}
+.pagination li.active a{font-weight: 900;}
+.badge-data{
+    border-radius:4px;
+    padding: 2px;        
+    margin-left: -16px;
+    width: 16px;
+    height:16px;
+    font-size: 10px;
+    text-align: center;
+    background-color:rgba(231,76,60,0.9);   
+}
+.sidebar input[type=checkbox]{
+    border-color:#15C;
+}
+#search-result .carousel{
+    height: 240px;
+}
+
+#search-result .item{
+    background-size: cover;
+    background-position: center;    
+    height: 240px;
+}
+.box{
+    border:1px solid #CDCDCD;
+    border-radius:8px;
+    margin-bottom: 6px;
+    background:#FFF;
+}

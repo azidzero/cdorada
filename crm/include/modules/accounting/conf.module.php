@@ -8,7 +8,7 @@
 
 $mod = new MODULE;
 $mod->url = "accounting";
-$mod->name = "Contabilidad &amp; Finanzas";
+$mod->name = "Conta &amp; Finanzas";
 $mod->icon = "money";
 
 $mod->addSection("Cuentas", "account", "book");

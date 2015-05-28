@@ -20,3 +20,6 @@ $mod->addSection('Busquedas', 'search', '');
 $mod->addSection('Actividades', 'activity', '');
 $mod->addOption('activity', 'Agregar', 0);
 $mod->addOption('activity', 'Adminisrar', 2);
+
+$mod->addSection('Propiedades', 'rental', '');
+$mod->addOption('rental', 'Agregar', 0);

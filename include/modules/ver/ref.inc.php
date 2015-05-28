@@ -16,7 +16,13 @@ $type = array(
     'Piso'
 );
 ?>
-<section id="ver_head" class="s-header" style="background-image: url('cms/content/upload/item_000001.jpg');">
+<ul id="smenu" class="nav nav-pills" style="width: 100%;position: fixed;top:110px;left:0px;z-index:1010;height:40px;background:rgba(255,255,255,0.85);">
+    <li class="active"><a data-url="p-home" href="javascript:void(0)">PRESENTACI&Oacute;N</a></li>
+    <li><a data-url="p-picture" href="javascript:void(0)">FOTOGRAF&Iacute;AS</a></li>
+    <li><a data-url="p-info" href="javascript:void(0)">INFORMACI&Oacute;N</a></li>
+    <li><a data-url="p-detail" href="javascript:void(0)">INFORMACI&Oacute;N DETALLADA</a></li>
+</ul>
+<section id="p-home" class="s-header" style="background-image: url('cms/content/upload/item_000001.jpg');padding-top:140px;">
     <header class="container" style="margin-top: 8px;">
         <h1><small><b>REFERENCIA:</b> <?php echo $o; ?></small><br/>
             <i class="fa fa-map-marker"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -26,40 +32,38 @@ $type = array(
         </div>
     </header>    
 </section><!-- HEADER -->
-<section class="s-images">
-    <div id="slides">
-        <ul class="slides-container">
-            <?php
-            for ($i = 1; $i < 7; $i++) {
-                $ref = "item_" . str_pad($i, 6, "0", STR_PAD_LEFT) . ".jpg";
-                ?>
-                <li>
-                    <img src="cms/content/upload/<?php echo $ref; ?>" alt="" />
-                    <div class="container">
-                        Slide <?php echo $i; ?>
-                    </div>
-                </li>            
+<div class="section">&nbsp;</div>
+<section id="p-picture" class="container-fluid">
+    <div class="well well-sm">
+        <h4>Forograf&iacute;as</h4>
+        <div class="banner">
+            <ul>
                 <?php
-            }
-            ?>
-        </ul>
-        <nav class="slides-navigation">
-            <a href="#" class="next"><i class="fa fa-chevron-right fa-5x"></i></a>
-            <a href="#" class="prev"><i class="fa fa-chevron-left fa-5x"></i></a>
-        </nav>
+                for ($i = 1; $i < 7; $i++) {
+                    $ref = "item_" . str_pad($i, 6, "0", STR_PAD_LEFT) . ".jpg";
+                    ?>
+                    <li style="background-image: url('cms/content/upload/<?php echo $ref; ?>')"></li>            
+                    <?php
+                }
+                ?>
+            </ul>        
+        </div>
     </div>
     <script>
         $(document).ready(function () {
-            $('#slides').superslides({
-                play: 3000
+            $('.banner').unslider({
+                dots: true,
+                fluid: true,
+                speed: 500,
+                delay: 3000
             });
         });
     </script>
 </section><!-- IMAGES -->
-
-<section class="s-detail">
+<div class="section">&nbsp;</div>
+<section id="p-info" class="s-detail">
     <header class="container">
-        <h4>Detalles</h4>
+        <h4>Informaci&oacute;n</h4>
     </header>
     <div class="container">
         <div class="row">
@@ -116,11 +120,11 @@ $type = array(
         </div>
     </div>
 </section><!-- INFORMATION -->
-
-<section class="s-extra">
+<div class="section">&nbsp;</div>
+<section id="p-detail" class="s-extra">
     <div class="container">
         <div class="row">
-            <h4>Informaci&oacute;n Extra</h4>
+            <h4>Informaci&oacute;n Detallada</h4>
             <div class="row">
                 <div class="col-sm-3">
                     <table class="table table-condensed table-striped table-bordered">
@@ -241,11 +245,19 @@ $type = array(
     </div>
 </section>
 <script>
+    function re() {
+        z = $(window).height();
+        $('section').css('min-height', z + 'px');
+        $('#p-picture').css('min-height', (z - 210) + 'px');
+        $('.banner ul li').css('min-height', (z - 210) + 'px');
+    }
     $('section').css('min-height', $(window).height() + 'px');
     $(window).resize(function () {
-        $('section').css('min-height', $(window).height() + 'px');
+        re();
     });
+    re();
     $(document).ready(function () {
+
         $.simpleWeather({
             location: 'Lagos de Moreno, Jalisco',
             woeid: '',
@@ -264,5 +276,17 @@ $type = array(
                 $("#weather").html('<p>' + error + '</p>');
             }
         });
+        $('#smenu li a').click(function () {
+            $('#smenu li').removeClass('active');
+            $(this).parent().addClass('active');
+            var href = $(this).data('url');
+            console.log(href);
+            var y = $('#' + href).offset().top;
+            y = y - 150;
+            $('html,body').animate({
+                scrollTop: y + 'px'
+            }, 1000);
+        });
+
     });
 </script>

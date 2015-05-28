@@ -78,8 +78,7 @@ section{
     background-attachment: fixed;
     background-position: center;
     background-size: cover;    
-    position: relative;
-    padding-top:110px;
+    position: relative;    
 }
 section h3{font-size:28pt;color:#000;}
 .section{
@@ -95,20 +94,19 @@ section h3{font-size:28pt;color:#000;}
 .btn{border-radius: 0px;}
 
 .carousel{ 
-    padding:0px;
-    min-height: 480px; /*slider height*/
+    padding:0px;    
 }
-.carousel-inner{ min-height: 480px;}
+
 .carousel .item {
     background:none;
     width: 100%; /*slider width*/
-    min-height: 480px;
+    height:464px;
     background-size: cover;
     background-position: center;
 
 }
 .carousel .item img {    
-    max-height: 480px; /*slider height*/
+
 }
 /*add some makeup*/
 .carousel .carousel-control {
@@ -145,7 +143,12 @@ section h3{font-size:28pt;color:#000;}
         margin-right: -20px;
     }
 }
-
+#home{
+    position: relative;
+    height:514px;
+    padding-top:114px;
+    margin:0px;
+}
 #home .main-filter{
     position: absolute;
     width: 25%;
@@ -182,12 +185,12 @@ section h3{font-size:28pt;color:#000;}
     height:100%;
     min-height: 640px;
 }
-#pmain{z-index: 1;position: absolute;}
+#pmain{z-index: 1;}
 #result-property, #result-map{
     z-index: 0;
     top:0px;
     width:100%;
-    position: absolute;
+    position: relative;
     transition: padding-left 0.5s,transform 0.5s,background 0.5s, margin-top 0.5s,left 0.5s;    
 }
 #result-property{left:0px;}
@@ -356,7 +359,7 @@ section#contact #contact_data{
     padding:4px;
 }
 section#contact #contact_data .input-group{
-    padding:4px;
+    padding:4px;width:100%;
 }
 section#contact #contact_data .input-group-addon{
     background-color:#333;color:#FFF;
@@ -455,13 +458,7 @@ footer .nav li a:hover{color:#FFF;background:transparent;}
     border-radius: 8px;
     height:98%;
 }
-.ui-datepicker .ui-datepicker-header{
-    background:#039;
-    color:#FFF;
-}
-.ui-datepicker .ui-datepicker-header a{ 
-    color:#FFF;
-}
+
 .sub-nav{
     margin-left: 24px;
     height: auto;
@@ -473,4 +470,101 @@ footer .nav li a:hover{color:#FFF;background:transparent;}
 .sub-nav li a{
     padding:0px;
     color:#F60;
+}
+.banner {
+    position: relative;
+    width: 100%;
+    overflow: auto;
+
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+
+    color: rgba(255,255,255,.6);
+    text-shadow: 0 0 1px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.3);
+
+    background: #5b4d3d;
+    box-shadow: 0 1px 2px rgba(0,0,0,.25);
+}
+.banner ul {
+    list-style: none;
+    width: 300%;
+}
+.banner ul li {
+    display: block;
+    float: left;
+    width: 33%;
+    padding: 160px 0 110px;    
+    background-size: cover;
+    box-shadow: inset 0 -3px 6px rgba(0,0,0,.1);
+}
+
+.banner h1, .banner h2 {
+    font-size: 40px;
+    line-height: 52px;
+
+    color: #fff;
+}
+
+.banner .btn {
+    display: inline-block;
+    margin: 25px 0 0;
+    padding: 9px 22px 7px;
+    clear: both;
+
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    border: 2px solid rgba(255,255,255,.4);
+    border-radius: 5px;
+}
+.banner .btn:hover {
+    background: rgba(255,255,255,.05);
+}
+.banner .btn:active {
+    -webkit-filter: drop-shadow(0 -1px 2px rgba(0,0,0,.5));
+    -moz-filter: drop-shadow(0 -1px 2px rgba(0,0,0,.5));
+    -ms-filter: drop-shadow(0 -1px 2px rgba(0,0,0,.5));
+    -o-filter: drop-shadow(0 -1px 2px rgba(0,0,0,.5));
+    filter: drop-shadow(0 -1px 2px rgba(0,0,0,.5));
+}
+
+.banner .btn, .banner .dot {
+    -webkit-filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
+    -moz-filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
+    -ms-filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
+    -o-filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
+}
+
+.banner .dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+}
+.banner .dots li {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+
+    text-indent: -999em;
+
+    border: 2px solid #fff;
+    border-radius: 6px;
+
+    cursor: pointer;
+    opacity: .4;
+
+    -webkit-transition: background .5s, opacity .5s;
+    -moz-transition: background .5s, opacity .5s;
+    transition: background .5s, opacity .5s;
+}
+.banner .dots li.active {
+    background: #fff;
+    opacity: 1;
 }
