@@ -39,7 +39,7 @@ if (!function_exists('getOption')) {
 
 }
 if (!function_exists('getData')) {
-
+    
     function getData($table, $field, $value, $return) {
         global $CNN;
         $q = mysqli_query($CNN, "SELECT * from $tbl WHERE $field='$$value'") or $e = (mysqli_error($CNN));
@@ -56,7 +56,6 @@ if (!function_exists('getData')) {
 
 }
 if (!function_exists('random_lipsum')) {
-
     function random_lipsum($amount = 1, $what = 'paras', $start = 0) {
         return simplexml_load_file("http://www.lipsum.com/feed/xml?amount=$amount&what=$what&start=$start")->lipsum;
     }

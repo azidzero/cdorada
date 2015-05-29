@@ -67,8 +67,8 @@ $tipo = $_REQUEST["tipo"];
                                     <select id="bedroom" name="bedroom" class="form-control">
                                         <option value="0">Dormitorios</option>
                                         <?php
-                                        $dorm_min = getOption('property_options', 'dorm_min');
-                                        $dorm_max = getOption('property_options', 'dorm_max');
+                                        $dorm_min = getOption('cms_options', 'dorm_min');
+                                        $dorm_max = getOption('cms_options', 'dorm_max');
                                         for ($x = $dorm_min; $x < $dorm_max + 1; $x++) {
                                             if ($_REQUEST["bedroom"] == $x) {
                                                 echo "<option selected=\"selected\" value=\"$x\">$x</option>";
@@ -88,8 +88,8 @@ $tipo = $_REQUEST["tipo"];
                                     <select id="group-property" name="group-property" class="form-control">
                                         <option value="0">Personas</option>
                                         <?php
-                                        $group_min = getOption('property_options', 'group_min');
-                                        $group_max = getOption('property_options', 'group_max');
+                                        $group_min = getOption('cms_options', 'group_min');
+                                        $group_max = getOption('cms_options', 'group_max');
                                         for ($i = $group_min; $i < $group_max + 1; $i++) {
                                             if ($_REQUEST["group-property"] == $i) {
                                                 echo "<option selected=\"selected\" value=\"$i\">$i</option>";
@@ -157,10 +157,10 @@ $tipo = $_REQUEST["tipo"];
                                                 $(function () {
                                                     $("#slider-range-property").slider({
                                                         range: true,
-                                                        min: <?php echo getOption('property_options', 'prize_min'); ?>,
-                                                        max: <?php echo getOption('property_options', 'prize_max'); ?>,
+                                                        min: <?php echo getOption('cms_options', 'prize_min'); ?>,
+                                                        max: <?php echo getOption('cms_options', 'prize_max'); ?>,
                                                         disabled: true,
-                                                        values: [<?php echo getOption('property_options', 'prize_max') / 4; ?>, <?php echo getOption('property_options', 'prize_max') / 4 * 3; ?>],
+                                                        values: [<?php echo getOption('cms_options', 'prize_max') / 4; ?>, <?php echo getOption('cms_options', 'prize_max') / 4 * 3; ?>],
                                                         slide: function (event, ui) {
                                                             $("#range-property").val("$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ]);
                                                         }

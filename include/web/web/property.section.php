@@ -72,8 +72,8 @@
                                 <select id="group-property" name="group-property" class="form-control">
                                     <option value="0">TODOS</option>
                                     <?php
-                                    $group_min = getOption('property_options', 'group_min');
-                                    $group_max = getOption('property_options', 'group_max');
+                                    $group_min = getOption('cms_options', 'group_min');
+                                    $group_max = getOption('cms_options', 'group_max');
                                     for ($i = $group_min; $i < $group_max + 1; $i++) {
                                         echo "<option value=\"$i\">$i</option>";
                                     }
