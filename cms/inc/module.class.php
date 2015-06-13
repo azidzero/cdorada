@@ -11,16 +11,17 @@ class MODULE {
     public $name;
     public $url;
     public $icon;
-    private $section = Array();
+    public $section = Array();
+    public $option = Array();
 
     function __construct() {
         $this->addSection("Inicio", "home", "home");
         // $this->addOption("home", "", 0, "dashboard");
     }
 
-    private $option = Array();
+    
 
-    function addSection($name, $url, $icon) {
+    function addSection($name, $url, $icon="") {
         $arr = Array("name" => $name, "url" => $url, "icon" => $icon);
         $this->section[] = $arr;
     }

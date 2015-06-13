@@ -5,36 +5,51 @@
     padding:0px;margin:0px;
 }
 .post{
-    float:left;
-    margin-bottom: 8px;
+    width:32%;
+    min-height: 196px;
+    display:inline-block;
+    margin: 0.5%;
     font-size:9pt;
     padding:8px;    
-    border-bottom: 1px solid rgba(0,0,0,0.75);
+    border:1px solid transparent;
     position: relative;
+    transition: all 0.5s;
+}
+.post:hover{
+    border-color:#000;
+    box-shadow:0px 2px 4px rgba(0,0,0,0.5);
 }
 .post-background{
-    position: absolute;
+    
+    height:196px;
     top:0px;
     left:0px;
     z-index: 1;
     width:100%;
-    height:100%;
-    background-size: cover;
+    background-size: auto 100%;    
+    transition:all 0.5s;
+    background-position: center;
+    overflow:hidden;
 }
-.post-body{
-    position: absolute;
+.post-background:hover{
+    background-size: auto 120%;
+    opacity:0.9;    
+    
+}
+.post-background:hover a{    
+    background:rgba(255,255,255,0.8);
+    color:rgba(0,0,0,0.9);
+}
+.post-background a{
     width:100%;
-    height:100%;
-    top:0px;
-    right:0px;
-    z-index:2;
-}
-.post-body a h3{
-    padding:8px;
+    display:inline-block;
+    background:rgba(0,0,0,0.9);
     color:#FFF;
-    background:rgba(0,0,0,0.33);
-    text-shadow: 0px 1px 1px rgba(0,0,0,0.85);
-    font-size: 16pt;
+    text-decoration: none;    
+    text-align: center;    
+    font-size: 24pt;
+    font-weight: 300 !important;
+    transition: all 0.5s;
 }
 
 .post-cat{

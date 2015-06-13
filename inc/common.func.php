@@ -19,16 +19,18 @@ if (!function_exists('getOption')) {
 }
 if (!function_exists('getData')) {
 
-    function getData($table, $field, $value, $return) {
+    function getData($tbl, $field, $value, $return) {
         global $CNN;
-        $q = mysqli_query($CNN, "SELECT * from $tbl WHERE $field='$$value'") or $e = (mysqli_error($CNN));
+        //echo "SELECT * from $tbl WHERE $field='$value'";
+        $SQL = "SELECT * from $tbl WHERE $field='$value'";
+        $q = mysqli_query($CNN, $SQL) or $e = (mysqli_error($CNN));
         $response = false;
         if (!isset($e)) {
             while ($r = mysqli_fetch_array($q)) {
                 $response = $r[$return];
             }
         } else {
-            echo $e;
+            echo $SQL . " - " . $e;
         }
         return $response;
     }

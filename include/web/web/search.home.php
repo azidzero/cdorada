@@ -14,7 +14,6 @@ $marker = filter_input(INPUT_POST, "marker");
 $page = filter_input(INPUT_POST, "page");
 $REF = explode("/", $_SERVER["HTTP_REFERER"]);
 $lang = $REF[count($REF) - 2];
-
 ?>
 <div class="row-fluid">
     <?php
@@ -32,8 +31,8 @@ $lang = $REF[count($REF) - 2];
                 break;
         }
         ?>
-        <div class="block col-sm-6">
-            <div  class="home_block" style="background-image: url('cms/content/upload/item_<?php echo str_pad(rand(1, 6), 6, '0', STR_PAD_LEFT); ?>.jpg');">                                
+        <div class="block col-sm-3">
+            <div  class="home_block" style="background-image: url('cms/content/upload/item_<?php echo str_pad(rand(1, 6), 6, '0', STR_PAD_LEFT); ?>.jpg');">
                 <table width="50%" style="font-weight: 300;background:#FFF;color:#000;float:right">
                     <tr>
                         <td><b class="text-danger" style="font-size:14pt;text-align: right">$ <?php echo number_format(rand(1, 1000000), 2); ?></b></td>

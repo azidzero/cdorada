@@ -18,7 +18,7 @@ body{background-size: cover ;color:#2C3E50;font-family: "Raleway",sans-serif;fon
 
 #main{margin-top: 50px;background: rgba(255,255,255,0.5)}
 
-#sidebar{position: fixed;height:100%;left:0;width:16.6667%;background:rgba(231,76,60,0.85);padding:2px;}
+#sidebar{position: fixed;height:100%;left:0;width:16.6667%;background:#FFF;padding:2px;}
 #sidebar .nav li a{color:#FFF;transition: background 0.5s,border 0.5s;border-left: 4px solid transparent;}
 #sidebar ul.nav li:hover >a,#sidebar ul.nav > li > a:focus{background:#C0392B;border-left: 4px solid #FFF;}
 #sidebar ul.nav li ul.nav{background:#C0392B;font-size:9pt;padding-left: 8px;border:none;border-bottom:1px solid #333;}

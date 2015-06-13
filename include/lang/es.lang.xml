@@ -1,9 +1,9 @@
 <language name="ES" iso="ES-ES" locale="Espanol">        
     <sections>
-        <section name="header">
+        <section name="header" description="Encabezado">
             <string name="title">Planet Costa Dorada</string>            
         </section>
-        <section name="navbar">
+        <section name="navbar" description="navegación">
             <string name="responsive-menu">Alternar navegación</string>		
             <string name="alt-logo">Planet Costa Dorada</string>		
             <string name="flag-es">Español</string>
@@ -25,36 +25,42 @@
             <string name="menu-about">Empresa</string>            
             <string name="menu-contact">Contacto</string>
         </section>
-        <section name="home">
+        <section name="home" description="Inicio">
             <string name="show-more">Ver Más</string>
         </section>
-        <section name="filter">
+        <section name="filter" description="Filtro">
             <string name="title">Filtro</string>
-            <string name="all-users">Todos</string>
-            <string name="all-mode">Todos</string>
-            <string name="all-type">Todos</string>
-            <string name="placeholder-locate">Seleccionar destino</string>
-            <string name="range">Con un costo entre </string>
-            <string name="filter-rent">en Alquiler</string>
-            <string name="filter-sale">en Venta</string>
-            <string name="filter-deal">en Oferta</string>
+            <string name="default-place">Destinos</string>
+            <string name="default-group">Personas</string>
+            <string name="default-type">Tipo de Alojamiento</string>
             <string name="search-button">Buscar</string>
-            <string name="search-property">Estoy buscando propiedades </string>
-        </section>        
-        <section name="property">
-            <string name="name">Alquiler</string>
-        </section>        
-        <section name="owner"></section>
-        <section name="content"></section>
-        <section name="about">
-            
+            <string name="label-ref">Referencia</string>
+            <string name="hint-ref">Buscar por refrencia...</string>                        
         </section>
-        <section name="contact">
+        <section name="deal" description="Ofertas">
+            <string name="title">Últimas Ofertas</string>
+            <string name="label-bedroom">Dormitorio(s)</string>
+            <string name="label-capacity">Capacidad</string>
+            <string name="label-bathroom">Baño(s)</string>
+            <string name="calendar-title">Calendario de Disponibilidad</string>
+            <string name="button-all">Ver todas las ofertas</string>
+        </section>
+        <section name="owner" description="Propietarios">
+            <string name="title">Propietarios</string>
+        </section>
+        <section name="activity" description="Actividades">
+            <string name="title">Actividades</string>
+        </section>
+        <section name="info" description="Información del Viaje">
+            <string name="title">Info. Viaje</string>
+        </section>
+        <section name="about" description="Empresa">
+            <string name="titile">Empresa</string>
+        </section>
+        <section name="contact" description="Contactanos">
+            <string name="title">Contacto</string>
             <string name="atencion-titulo">Horario de Atención</string>
-        </section>
-        <section name="search">
-            <string name="title">Busqueda</string>
-        </section>
+        </section>                
     </sections>
     <modules>
         

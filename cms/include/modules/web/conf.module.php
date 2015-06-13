@@ -13,13 +13,12 @@ $mod->icon = "web";
 
 $mod->addSection('Destacados', 'featured', '');
 $mod->addOption('featured', 'Agregar', 0);
-$mod->addOption('featured', 'Adminisrar', 2);
-
-$mod->addSection('Busquedas', 'search', '');
+$mod->addOption('featured', 'Administrar', 2);
 
 $mod->addSection('Actividades', 'activity', '');
 $mod->addOption('activity', 'Agregar', 0);
-$mod->addOption('activity', 'Adminisrar', 2);
+$mod->addOption('activity', 'Administrar', 2);
 
-$mod->addSection('Propiedades', 'rental', '');
-$mod->addOption('rental', 'Agregar', 0);
+$mod->addSection('Info. Viaje', 'info', '');
+$mod->addOption('info', 'Agregar', 0);
+$mod->addOption('info', 'Administrar', 2);

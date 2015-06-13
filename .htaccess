@@ -1,6 +1,6 @@
 RewriteEngine On
 Options  FollowSymLinks
-RewriteBase /cdorada/
+RewriteBase /
 #RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -11,15 +11,18 @@ RewriteCond %{REQUEST_METHOD} GET
 RewriteCond $1 !^(favicon\.ico|favicon\.png|media|robots\.txt|crossdomain\.xml|css|js|\.js)
 RewriteRule ^(.*)$ index.php/$1 [L]
 
+# FULL SEARCH
+RewriteCond %{REQUEST_URI} !^/?(cms|crm|crs|css|js)/?\.(css|js|php)$
+RewriteRule ^([^\/.]+)/([^\/.]+)/([^\/.]+)/([^\/.]+)/([^\/.]+)/?$ /index.php?lang=$1&m=$2&s=$3&o=$4&se=$5 [L,NC,QSA]
 # LANG + MODULE + SECTION + OPTION
 RewriteCond %{REQUEST_URI} !^/?(cms|crm|crs|css|js)/?\.(css|js|php)$
-RewriteRule ^([^\/.]+)/([^\/.]+)/([^\/.]+)/([^\/.]+)/?$ /cdorada/index.php?lang=$1&m=$2&s=$3&o=$4 [L,NC,QSA]
+RewriteRule ^([^\/.]+)/([^\/.]+)/([^\/.]+)/([^\/.]+)/?$ /index.php?lang=$1&m=$2&s=$3&o=$4 [L,NC,QSA]
 # LANG + MODULE + SECTION
 RewriteCond %{REQUEST_URI} !^/?(cms|crm|crs|css|js)/
-RewriteRule ^([^\/.]+)/([^\/.]+)/([^\/.]+)/?$ /cdorada/index.php?lang=$1&m=$2&s=$3 [L,NC]
+RewriteRule ^([^\/.]+)/([^\/.]+)/([^\/.]+)/?$ /index.php?lang=$1&m=$2&s=$3 [L,NC]
 # LANG + MODULE
 RewriteCond %{REQUEST_URI} !^/?(cms|crm|crs|css|js)/
-RewriteRule ^([^\/.]+)/([^\/.]+)/?$ /cdorada/index.php?lang=$1&m=$2 [L,NC]
+RewriteRule ^([^\/.]+)/([^\/.]+)/?$ /index.php?lang=$1&m=$2 [L,NC]
 # LANG
 RewriteCond %{REQUEST_URI} !^/?(cms|crm|crs|css|js|include)/
-RewriteRule ^([^\/.]+)/?$ /cdorada/index.php?lang=$1 [L,NC]
+RewriteRule ^([^\/.]+)/?$ /index.php?lang=$1 [L,NC]

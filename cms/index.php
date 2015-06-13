@@ -1,5 +1,11 @@
 <?php
 include("inc/app.conf.php");
+/*
+ * # INICIO DEL NUCLEO
+ */
+$CORE = new CORE($m, $s, $o, $CNN);
+$CORE->loadModule();
+$mods = $CORE->getModules();
 ?>
 <!doctype html>
 <html lang="en">
@@ -18,16 +24,29 @@ include("inc/app.conf.php");
         <link rel="stylesheet" href="../css/font-awesome.min.css" />
         <link rel="stylesheet" href="css/main.css" />
         <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/dropzone.min.css" />
+        <link rel="stylesheet" href="css/basic.min.css" />
+        <link rel="stylesheet" href="css/summernote.css" />
+        <link rel="stylesheet" href="css/summernote-bs3.css" />
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <link rel="stylesheet" href="include/modules/<?php echo $m; ?>/style.css" /><!-- Hoja de Estilo Propia del Modulo -->
         <!-- JS -->
-        <script src="../js/jquery-1.11.2.min.js"></script>
-        <script src="../js/jquery-ui-1.9.2.custom.min.js"></script>
+        <script src="js/jquery-1.11.2.min.js"></script>
+        <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
         <script src="js/jquery.hotkeys.js"></script>
-        <script src="../js/bootstrap.min.js"></script>                
-        <script src="../js/holder.js"></script>
+        <script src="js/bootstrap.min.js"></script>                
+        <script src="js/jquery.dataTables.js"></script>
+        <script src="js/datatables.bootstrap.js"></script>
+        <script src="js/holder.js"></script>
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
-        <script src="../js/gmap3.min.js"></script>        
+        <script src="js/gmap3.min.js"></script>        
         <script src="js/bootstrap-wysiwyg.js"></script>        
+        <script src="js/dropzone.min.js"></script>
+        <script src="js/summernote.min.js"></script>
+        <script src="js/summernote-es-ES.js"></script>
+        <script src="js/jquery.bootstrap-growl.min.js"></script>
         <script src="js/main.core.js"></script>
+        <script src="include/modules/<?php echo $m; ?>/func.common.js"></script><!-- Funciones Propias del Modulo -->
     </head>
     <body>
         <?php

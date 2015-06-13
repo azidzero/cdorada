@@ -63,7 +63,7 @@ function doSearch(id) {
     var lang = getUrlVars()["lang"];
     $.ajax({
         methos: 'POST',
-        url: "/cdorada/include/web/web/search.home.php?lang="+lang,
+        url: "include/web/web/search.home.php?lang="+lang,
         data: {
             i: id, // Section
             ra: range_a, // Range A

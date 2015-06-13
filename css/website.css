@@ -8,23 +8,27 @@ h1,h2,h3,h4,h5,h6{font-family: 'Raleway',sans-serif;font-weight: 700;text-transf
     height: 96px;
     font-weight: 700;
     text-transform: uppercase;
-    padding-left: 4px;
+    padding-left: 0;
     font-size: 10pt;
     background:transparent;
     border:none;
 }
+.navbar-nav{ margin-left:5vw;width:100vw;}
+.navbar-nav li a{ padding:4px; font-size:9pt;}
 .navbar .nav li a{ color:#FFF;padding-top:10px;letter-spacing: -1px;font-weight: normal;}
 .navbar .nav li:hover a{ background-color:#FFF;color:rgba(0,24,72,0.95);}
 .navbar .nav li.active a{ height: 36px;}
-ul.social li a{ transition:background 0.5s;border-radius: 4px;padding:5px;}
+ul.social{width:42vw;float:right;margin:0px;}
+ul.social li a{ transition:background 0.5s;border-radius: 4px;padding:3px;}
 ul.social li a img{transition:filter 0.5s,-webkit-filter 0.5s;}
 ul.social li:hover a{background:rgba(255,255,255,0.5) !important;}
 ul.social li:hover a img{filter: grayscale(100%);-webkit-filter: grayscale(100%);}
-.slogan{    
-    color:#F70;
-    margin:8px;
-    margin-top:32px;
-    margin-right: 64px;
+.slogan{
+    float:left;
+    width:25vh;
+    color:#F70;//33 | 25 | 42
+    text-align:center;
+    margin:8px;    
     display: block;
     font-size: 16pt;
     font-family: 'Open Sans Condensed',sans-serif;
@@ -32,18 +36,19 @@ ul.social li:hover a img{filter: grayscale(100%);-webkit-filter: grayscale(100%)
     //text-shadow: 1px 1px 2px rgba(128,36,0,0.5);
 }
 #top_brand{
-    margin-left: -2%;
-    width:103%;
+    margin-left:0;
+    width:100%;
     position: relative;
     background:rgba(255,255,255,1);
     height:72px;
 }
+#top_brand .navbar-brand{width:33vw;margin:0px;padding:0px;}
+#top_brand .navbar-brand img{width:100%;}
 #top_brand ul li a{color:#000;background: rgba(255,255,255,0);transition: background 0.5s;}
 #top_brand ul li:hover a{background:rgba(0,0,0,0.75);}
 
-#top_menu{    
-    margin-left: -2%;
-    width:103%;
+#top_menu{
+    width:100%;
     background:linear-gradient(rgba(0,24,72,0.95) 5%,rgba(0,49,148,0.95) 95%);
     height: 42px;
 }
@@ -51,59 +56,71 @@ ul.social li:hover a img{filter: grayscale(100%);-webkit-filter: grayscale(100%)
     width:12.5%;
     text-align: center;
 }
-#top_menu ul li.active a{
-    padding:16px;
-    height:42px;
-}
+
 #top_menu ul li.active:hover a{background:#000;}
 #top_menu ul li a{
-    height:40px;
-    letter-spacing: -1px;
-    font-size: 11pt;
+    height:38px;
+    border-radius:4px;
+    font-size: 1vw;
     padding:12px;
+    padding-top:10px;
     text-shadow: 0px 1px 2px rgba(0,0,0,0.5);
 }
 #top_menu ul li:hover a{
-    background:rgba(255,255,255,0.85);
+    background:linear-gradient(rgba(255,255,255,0.85),rgba(255,255,255,0.65));
 
 }
-#main{
-    padding-top:0px;
-}
+/*
+##### CONTENT #####
+*/
+
 section{
-    background-color:#EFEFEF;
+    background-color:#FFF;
     width:100%;
-    margin:0px;
-    float:left;    
+    margin:0px;    
+    position: relative;
+    min-height:80vh;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;    
-    position: relative;    
+    display:block;
 }
 section h3{font-size:28pt;color:#000;}
 .section{
+    position: relative;
     width:100%;
     background-color:#FA3;
-    padding:8px;
-    margin:0px;
-    float:left;
+    padding:4px;
+    margin:0px;    
     color:#FFF;
-    min-height: 64px;
-    box-shadow: inset 0px 2px 4px rgba(0,0,0,0.5);    
+    min-height: 32px;
+    box-shadow: inset 0px 2px 4px rgba(0,0,0,0.5);
+    text-align: center;
+}
+.section .fa{
+    color:rgba(255,255,255,0.75);
+    font-size: 52px;
+    position: absolute;
+    top:-32px;    
 }
 .btn{border-radius: 0px;}
 
 .carousel{ 
-    padding:0px;    
+    padding:0px;
+    width:100%;
+    // height:80vh;
+    min-height: 320px;
 }
 
 .carousel .item {
     background:none;
     width: 100%; /*slider width*/
-    height:464px;
-    background-size: cover;
-    background-position: center;
-
+    height:320px;
+    background-size: cover;    
+    background-position: top right;
+}
+#home .carousel .item {
+    height:80vh;
 }
 .carousel .item img {    
 
@@ -113,7 +130,7 @@ section h3{font-size:28pt;color:#000;}
     background: none;
     border: none;
     color:#FFF;
-    width:3%;
+    width:24px;
     opacity:0.75;
 }
 .carousel .carousel-caption{
@@ -123,36 +140,26 @@ section h3{font-size:28pt;color:#000;}
     width:40%;
     height:25%;
     margin-left: 57%;
-    bottom:37.5%;
-    background: rgba(255,255,255,0.65);
+    bottom:5%;
+    background: linear-gradient(rgba(255,255,255,0.33) 0%,rgba(255,255,255,0.1) 100%);
     vertical-align: middle;
     border-radius: 8px;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.33);
     //border:1px solid rgba(255,255,255,0.75);
 }
 .carousel .carousel-caption h3{            
     color:#F90;
     margin-bottom: 0px;
+    text-shadow: 0px 1px 1px rgba(0,0,0,0.5);
 }
 .carousel .carousel-caption p{ 
     color:#039;
 }
-/*full width container*/
-@media (max-width: 767px) {
-    .block {
-        margin-left: -20px;
-        margin-right: -20px;
-    }
-}
-#home{
-    position: relative;
-    height:514px;
-    padding-top:114px;
-    margin:0px;
-}
+
 #home .main-filter{
     position: absolute;
-    width: 25%;
-    left:96px;
+    width: 25vw;
+    left:4vw;
     z-index: 1;
     top:0px;
     padding-top:114px;
@@ -160,6 +167,7 @@ section h3{font-size:28pt;color:#000;}
 }
 #home .main-filter .filter-content{
     background:rgba(255,255,255,0.5);
+    width:100%;
     float:left;
     height: 100%;
     padding:8px;
@@ -203,10 +211,13 @@ section h3{font-size:28pt;color:#000;}
     background-position: center;
     padding:8px;
     color:#FFF;
-    min-height: 320px;    
+    min-height: 320px; 
     box-shadow: 0px 1px 1px rgba(0,0,0,0.5);
     font-family: 'Open Sans Condensed',sans-serif;
     font-weight: 900;
+    border-radius: 8px;
+    border:1px solid #FFF;
+    overflow: hidden;
 }
 .home_block h4{
     font-size:13pt;
@@ -247,8 +258,7 @@ section h3{font-size:28pt;color:#000;}
 .home_block_nav li .fa{
     min-width: 24px;
 }
-.home_block table {width:50%;}
-.home_block h4 {width:50%;}
+.home_block table {width:100%;}
 .home_block table td{text-align:center;padding:4px;}
 .home_block .badge{
     border-radius:4px;
@@ -316,26 +326,7 @@ section h3{font-size:28pt;color:#000;}
 .blog{
 
 }
-.blog .post{
-    width:25%;
-    min-height: 180px;
-    float:left;
-    margin: 0px;
-    padding:0px;
-}
-.post a h4{
-    color:#039;
-    background:rgba(255,255,255,0.75);
-    font-weight: 900;    
-}
-.post h4{font-weight: 700;}
-.post h4 small{color:#FFF;font-weight: 700;}
-.post-container{
-    background-size:cover;
-    min-height:180px;
-    text-align:right;
-    padding:8px;
-}
+
 /*
 ##### ABOUT
 */
@@ -428,14 +419,7 @@ footer .nav li a:hover{color:#FFF;background:transparent;}
     height:56px;
 }
 @media all and (max-width:768px){
-    .navbar .nav{ background:#000;}
-    .navbar.social li{display:inline-block;}
-    .home_block table {width:100%;}
-    .home_block h4 {width:100%;}
-    section#about iframe{ width:100%;}    
-    .pushmenu{width:90%;left:-90%;}
-    footer .twitter table tr td h4{font-size: 9pt;}
-    footer .twitter table tr td b,footer .twitter table tr td {font-size: 8pt;}
+
 }
 
 /*
@@ -567,4 +551,43 @@ footer .nav li a:hover{color:#FFF;background:transparent;}
 .banner .dots li.active {
     background: #fff;
     opacity: 1;
+}
+
+.web-calendar{
+    font-size: 8pt;
+}
+.web-calendar .disabled{
+    background-color:#EFEFEF;
+    color:#CCC;
+}
+
+/*full width container*/
+@media (max-width: 767px) {
+    .block {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+    .navbar-nav li a{
+        padding:2px;
+        font-size:1vw;
+    }
+    #top_menu ul li a{
+        font-size:2vw;
+    }
+    #home .main-filter{
+        left:5vw;
+        width:90vw;
+        padding-top:28px;
+    }
+    #home .carousel .carousel-caption {display: none;}    
+    
+    .navbar .nav{ background:#000;}
+    .navbar.social li{display:inline-block;}
+    .home_block table {width:100%;}
+    .home_block h4 {width:100%;}
+    section#about iframe{ width:100%;}    
+    .pushmenu{width:90%;left:-90%;}
+    footer .twitter table tr td h4{font-size: 9pt;}
+    footer .twitter table tr td b,footer .twitter table tr td {font-size: 8pt;}
+
 }

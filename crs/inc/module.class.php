@@ -11,6 +11,7 @@ class MODULE {
     public $name;
     public $url;
     public $icon;
+    public $desc = "";
     private $section = Array();
 
     function __construct() {

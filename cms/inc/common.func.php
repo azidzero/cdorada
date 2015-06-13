@@ -39,14 +39,35 @@ if (!function_exists('getOption')) {
 
 }
 if (!function_exists('getData')) {
-    
-    function getData($table, $field, $value, $return) {
+
+    function getData($tbl, $field, $value, $return) {
         global $CNN;
-        $q = mysqli_query($CNN, "SELECT * from $tbl WHERE $field='$$value'") or $e = (mysqli_error($CNN));
+        //echo "SELECT * from $tbl WHERE $field='$value'";
+        $SQL = "SELECT * from $tbl WHERE $field='$value'";
+        $q = mysqli_query($CNN, $SQL) or $e = (mysqli_error($CNN));
         $response = false;
         if (!isset($e)) {
             while ($r = mysqli_fetch_array($q)) {
                 $response = $r[$return];
+            }
+        } else {
+            echo $SQL . " - " . $e;
+        }
+        return $response;
+    }
+
+}
+if (!function_exists('getArr')) {
+
+    function getArr($tbl, $field, $value, $return) {
+        global $CNN;
+        $q = mysqli_query($CNN, "SELECT * from $tbl WHERE $field='$value'") or $e = (mysqli_error($CNN));
+        $response = array();
+        $pos = 0;
+        if (!isset($e)) {
+            while ($r = mysqli_fetch_array($q)) {
+                $response[$pos] = $r[$return];
+                $pos++;
             }
         } else {
             echo $e;
@@ -56,6 +77,7 @@ if (!function_exists('getData')) {
 
 }
 if (!function_exists('random_lipsum')) {
+
     function random_lipsum($amount = 1, $what = 'paras', $start = 0) {
         return simplexml_load_file("http://www.lipsum.com/feed/xml?amount=$amount&what=$what&start=$start")->lipsum;
     }

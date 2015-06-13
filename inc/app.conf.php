@@ -23,8 +23,10 @@ if (isset($_REQUEST["m"])) {
  */
 if (isset($_REQUEST["s"])) {
     if ($m == 'buscar') {
-        $s = "search";
-        $_REQUEST["what"] = $_REQUEST["s"];
+        $s = "search";        
+        $_REQUEST["view"] = $_REQUEST["s"];
+        $_REQUEST["what"] = $_REQUEST["o"];
+        $_REQUEST["where"] = $_REQUEST["se"];
     } else {
         $s = $_REQUEST["s"];
     }

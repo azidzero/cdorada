@@ -1,5 +1,9 @@
 <?php
 include("inc/app.conf.php");
+
+$CORE = new CORE($m, $s, $o, $CNN);
+$CORE->loadModule();
+$mods = $CORE->getModules();
 ?>
 <!doctype html>
 <html lang="en">
@@ -29,6 +33,8 @@ include("inc/app.conf.php");
         <script src="../js/gmap3.min.js"></script>        
         <script src="js/bootstrap-wysiwyg.js"></script>        
         <script src="js/main.core.js"></script>
+        <script src="js/jquery.dataTables.js"></script>
+       
     </head>
     <body>
         <?php
@@ -93,4 +99,4 @@ include("inc/app.conf.php");
             </div>
         </div>
     </body>
-</html>
+</html> 

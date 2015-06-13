@@ -23,7 +23,11 @@ if (isset($_REQUEST["place"])) {
 } else {
     $place = "";
 }
-
+if (isset($_REQUEST["view"])) {
+    $v = $_REQUEST["view"];
+} else {
+    $v = "lista";
+}
 $bedroom = $_REQUEST["bedroom"];
 $people = $_REQUEST["group"];
 $tipo = $_REQUEST["tipo"];
@@ -37,6 +41,10 @@ $tipo = $_REQUEST["tipo"];
                     <table class="table table-condensed table-responsive" style="background:#FFF;">
                         <tr>
                             <td colspan="2">
+                                <div class="btn-group pull-right">
+                                    <a href="javascript:void(0)" onclick="$('#frm-main').attr('action', '<?php echo $uril; ?>').submit()" class="btn btn-warning">Ver Lista</a>
+                                    <a href="javascript:void(0)" onclick="$('#frm-main').attr('action', '<?php echo $urim; ?>').submit()" class="btn btn-warning">Ver en Mapa</a>
+                                </div>
                                 <h4>Buscar Alquiler</h4>
                             </td>
                         </tr>
@@ -47,7 +55,7 @@ $tipo = $_REQUEST["tipo"];
                                     <select id="l" name="location" class="form-control">
                                         <option value="0">Destinos</option>
                                         <?php
-                                        $OQ = mysqli_query($CNN, "SELECT * from property_location");
+                                        $OQ = mysqli_query($CNN, "SELECT * from cms_property_locale") or die(mysqli_error($CNN));
                                         while ($OR = mysqli_fetch_array($OQ)) {
                                             if ($_REQUEST["location"] == $OR["id"]) {
                                                 echo "<option selected=\"selected\" value=\"{$OR["id"]}\">{$OR["name"]}</option>";
@@ -109,7 +117,7 @@ $tipo = $_REQUEST["tipo"];
                                     <select name="tipo-property" id="tipo-property" class="form-control">
                                         <option value="0">Tipo de Alojamiento</option>
                                         <?php
-                                        $OQ = mysqli_query($CNN, "SELECT * from property_type");
+                                        $OQ = mysqli_query($CNN, "SELECT * from cms_property_type");
                                         while ($OR = mysqli_fetch_array($OQ)) {
                                             if ($_REQUEST["tipo-property"] == $OR["id"]) {
                                                 echo "<option selected=\"selected\" value=\"{$OR["id"]}\">{$OR["name"]}</option>";
@@ -142,7 +150,7 @@ $tipo = $_REQUEST["tipo"];
                                 <a href="javascript:void(0)" onclick="$('#fadvanced').toggle()"><i class="fa fa-bars"></i> Opciones Avanzadas</a>
                             </td>
                         </tr>
-                        <tr id="fadvanced" style="display:block;">
+                        <tr id="fadvanced" style="display:none;">
                             <td colspan="2">
                                 <table class="table table-condensed" style="font-size: 9pt;">
                                     <tr>
@@ -185,18 +193,17 @@ $tipo = $_REQUEST["tipo"];
                                         <td colspan="2">
                                             <b>Exterior</b>
                                             <table class="table table-condensed">
-                                                <tr>
-                                                    <td width="24"><input type="checkbox" id="exterior_1" value="1" /></td>
-                                                    <td>Instalaciones para ni&ntilde;os</td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="24"><input type="checkbox" id="exterior_1" value="1" /></td>
-                                                    <td>Mobiliario de jard&iacute;n</td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="24"><input type="checkbox" id="exterior_1" value="1" /></td>
-                                                    <td>Ducha exterior</td>
-                                                </tr>
+                                                <?php
+                                                $sq = mysqli_query($CNN, "SELECT * from cms_property_exterior");
+                                                while ($sr = mysqli_fetch_array($sq)) {
+                                                    ?>
+                                                    <tr>
+                                                        <td width="24"><input type="checkbox" id="e_<?php echo $sr[0]; ?>" name="e_<?php echo $sr[0]; ?>" value="1" /></td>
+                                                        <td><?php echo $sr["name"]; ?></td>
+                                                    </tr>                                                
+                                                    <?php
+                                                }
+                                                ?>
                                             </table>                                            
                                         </td>
                                     </tr>
@@ -204,21 +211,20 @@ $tipo = $_REQUEST["tipo"];
                                         <td colspan="2">
                                             <b>Interior</b>
                                             <table class="table table-condensed">
-                                                <tr>
-                                                    <td width="24"><input type="checkbox" id="interior_1" value="1" /></td>
-                                                    <td>WiFi</td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="24"><input type="checkbox" id="interior_1" value="1" /></td>
-                                                    <td>Aire Acondicionado</td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="24"><input type="checkbox" id="exterior_1" value="1" /></td>
-                                                    <td>Calefaccion Central</td>
-                                                </tr>
+                                                <?php
+                                                $sq = mysqli_query($CNN, "SELECT * from cms_property_interior") or die(mysqli_error($CNN));
+                                                while ($sr = mysqli_fetch_array($sq)) {
+                                                    ?>
+                                                    <tr>
+                                                        <td width="24"><input type="checkbox" id="i_<?php echo $sr[0]; ?>" name="i_<?php echo $sr[0]; ?>" value="1" /></td>
+                                                        <td><?php echo $sr["name"]; ?></td>
+                                                    </tr>                                                
+                                                    <?php
+                                                }
+                                                ?>
                                             </table>                                            
                                         </td>
-                                    </tr>
+                                    </tr>                                    
                                 </table>
                             </td>
                         </tr>
@@ -233,50 +239,82 @@ $tipo = $_REQUEST["tipo"];
                 </form>                
             </div>
             <div class="col-sm-9">
-                <h4>Resultados</h4>                                
-                Se econtr&aacuteron <strong><?php echo rand(1, 9999); ?></strong> resultados
                 <?php
-                // echo "<pre>";
-                // print_r($_REQUEST);
-                // echo "</pre>";
+                $q = mysqli_query($CNN, "SELECT * from cms_property") or die(mysqli_error($CNN));
+                $n = mysqli_num_rows($q);
+                $limit = 5;
+                $pages = intval($n / $limit) + 1;
+                $offset = ($page - 1) * $limit;
+                $q = mysqli_query($CNN, "SELECT * from cms_property order by id DESC LIMIT $offset,$limit") or die(mysqli_error($CNN));
+                ?>
+                <h4>Resultados</h4>                                
+                Se econtr&aacuteron <strong><?php echo $n; ?></strong> resultados
+                <?php
+                if ($v == "mapa") {
+                    ?>
+                    <div id="mapa-filtro" style="width:100%;height:480px;"></div>
+                    <script>
+                        $('#mapa-filtro').gmap3({
+                            map: {
+                                //address: "Rambla Catalunya no.24 43480 Vila-seca (Tarragona) España",
+                                latLng: [41.109106, 1.148606],
+                                options: {
+                                    zoom: 16,
+                                    center: [41.109106, 1.148606]
+                                }
+                            },
+                            marker: {
+                                //address: "Rambla Catalunya no.24 43480 Vila-seca (Tarragona) España"
+                                values: [
+                                    {latLng: [41.109106, 1.148606], data: 'Oficinas Centrales'}
+                                ]
+                            }
+                        });
+                    </script>
+                    <?php
+                }
                 ?>
                 <div id="search-result">
                     <?php
-                    for ($i = 1; $i < 6; $i++) {
-                        $rid = str_pad($i, 8, "0", STR_PAD_LEFT);
+                    while ($r = mysqli_fetch_array($q)) {
+                        $rid = str_pad($r["id"], 8, "0", STR_PAD_LEFT);
                         ?>
                         <div class="container-fluid box" id="item-<?php echo $rid; ?>">
                             <div class="row-fluid">
                                 <div class="col-sm-6">
-                                    <h4>{item-<?php echo $rid; ?>}</h4>
+                                    <h4><?php echo $r["title"]; ?></h4>
                                     <div id="carousel-<?php echo $rid; ?>" class="carousel slide" data-ride="carousel">
                                         <!-- Indicators -->
                                         <ol class="carousel-indicators">
                                             <?php
-                                            for ($j = 1; $j < 6; $j++) {
+                                            $noq = mysqli_query($CNN, "SELECT * from cms_property_gallery WHERE pid='{$r["id"]}'") or die(mysqli_error($CNN));
+                                            $num = mysqli_num_rows($noq);
+                                            for ($j = 1; $j < $num + 1; $j++) {
                                                 ?>
                                                 <li data-target="#carousel-<?php echo $rid; ?>" data-slide-to="<?php echo $j - 1; ?>" class="<?php
                                                 if ($j == 1) {
                                                     echo "active";
                                                 }
-                                                ?>"></li>
-                                                    <?php
-                                                }
-                                                ?>                                            
+                                                ?>">
+                                                </li>
+                                                <?php
+                                            }
+                                            ?>                                            
                                         </ol>
                                         <!-- Wrapper for slides -->
                                         <div class="carousel-inner">
                                             <?php
-                                            for ($j = 1; $j < 6; $j++) {
-                                                $array['ref'] = str_pad(rand(1, 6), 6, "0", STR_PAD_LEFT);
-                                                $ref = "item_" . $array['ref'] . ".jpg";
+                                            $j = 1;
+                                            while ($or = mysqli_fetch_array($noq)) {
+                                                $ref = $or["name"] . "_m.jpg";
                                                 ?>
                                                 <div class="<?php
                                                 if ($j == 1) {
                                                     echo 'active';
                                                 }
-                                                ?> item" style="background-image: url('cms/content/upload/<?php echo $ref; ?>');background-position:bottom;"></div>
+                                                ?> item" style="background-image: url('cms/content/upload/property/<?php echo $ref; ?>');background-position:bottom;"></div>
                                                      <?php
+                                                     $j++;
                                                  }
                                                  ?>
                                         </div>
@@ -295,43 +333,54 @@ $tipo = $_REQUEST["tipo"];
                                     <span class="label label-invert pull-right">
                                         <i class="fa fa-moon-o"></i> 6 NOCHES
                                     </span>
-                                    <h4><small>antes $<?php echo rand(99, 9999); ?>.00</small><br/> $<?php echo rand(99, 9999); ?>.00
-                                    </h4>
+                                    <h4>$<?php echo number_format($r["prize"], 2); ?></h4>
                                     <table class="table table-condensed" style="width:100%;color:#000;">
                                         <tr>
                                             <td colspan="3">                                                
-                                                <i class="fa fa-map-marker"></i> <?php echo random_lipsum(rand(1, 8), 'words'); ?> <br/>
-                                                <i class="fa fa-building"></i> <?php echo random_lipsum(rand(1, 8), 'words'); ?> <br/>
+                                                <i class="fa fa-map-marker"></i> <?php echo getData("cms_property_locale", "id", $r["location"], "name"); ?> <br/>
+                                                <i class="fa fa-building"></i> <?php echo getData("cms_property_type", "id", $r["tipo"], "name"); ?> <br/>
                                             </td>
-                                            <td width="40"><img title="Dormitorio(s)" data-toggle="tooltip" src="images/home_bed.png" /> <sup class="badge badge-data"><?php echo rand(2, 16); ?></sup></td>
-                                            <td width="40"><img title="Persona(s)" data-toggle="tooltip" src="images/home_users.png" /> <sup class="badge badge-data"><?php echo rand(2, 16); ?></sup></td>
-                                            <td width="40"><img title="Ba&ntilde;o(s)" data-toggle="tooltip" src="images/home_bath.png" /> <sup class="badge badge-data"><?php echo rand(1, 6); ?></sup></td>
+                                            <td width="40"><img title="Dormitorio(s)" data-toggle="tooltip" src="images/home_bed.png" /> <sup class="badge badge-data"><?php echo $r["room"]; ?></sup></td>
+                                            <td width="40"><img title="Persona(s)" data-toggle="tooltip" src="images/home_users.png" /> <sup class="badge badge-data"><?php echo $r["capacity"]; ?></sup></td>
+                                            <td width="40"><img title="Ba&ntilde;o(s)" data-toggle="tooltip" src="images/home_bath.png" /> <sup class="badge badge-data"><?php echo $r["bathroom"]; ?></sup></td>
                                         </tr>
                                     </table>
                                     <div class="btn-group btn-group-justified">
                                         <a target="_blank" href="<?php echo $lang; ?>/ver/ref/<?php echo $rid; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-list-alt"></i> M&Aacute;S INFORMACION</a>
-                                        <a target="_blank" href="<?php echo $lang; ?>/book/<?php echo $rid; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-inbox"></i> RESERVAR</a>
+                                        <a target="_blank" href="<?php echo $lang; ?>/reservar/<?php echo $rid; ?>" class="btn btn-warning"><i class="glyphicon glyphicon-inbox"></i> RESERVAR</a>
                                     </div>
                                 </div>
                             </div>
                             <p style="font-family: 'Arial';font-size: 10pt;text-align: justify;font-weight: 300;">
-                                <?php
-                                echo random_lipsum(1, 'paras');
-                                ?>
+                                <?php echo $r["short_desc"]; ?>
                             </p>
                         </div>
                         <?php
                     }
+                    if ($pages > 10) {
+                        $page_min = $page - 5;
+                    } else {
+                        $page_min = 1;
+                    }
+                    if ($pages > 10) {
+                        $page_max = $page + 5;
+                    } else {
+                        $page_max = $pages + 1;
+                    }
                     ?>
                     <ul class="pagination">
-                        <li>
+                        <li <?php
+                        if ($page == 1) {
+                            echo "class=\"disabled\"";
+                        }
+                        ?>>
                             <a href="javascript:void(0)" onclick="$('#page').val(<?php echo $page - 1; ?>);
                                     $('#frm-main').submit();" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
                         <?php
-                        for ($i = 1; $i < 6; $i++) {
+                        for ($i = $page_min; $i < $page_max; $i++) {
                             ?>
                             <li class="<?php
                             if ($page == $i) {
@@ -344,7 +393,11 @@ $tipo = $_REQUEST["tipo"];
                             }
                             ?>
 
-                        <li>
+                        <li <?php
+                        if ($page == $pages) {
+                            echo "class=\"disabled\"";
+                        }
+                        ?>>
                             <a href="javascript:void(0)" onclick="$('#page').val(<?php echo $page + 1; ?>);
                                     $('#frm-main').submit();" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>

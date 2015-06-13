@@ -47,3 +47,74 @@ and open the template in the editor.
     margin-bottom: 6px;
     background:#FFF;
 }
+/*
+##### ACTIVIDADES
+*/
+.activity-blog{
+
+}
+.activity-blog header{
+    height: 66vh;
+    position:relative;
+    background-size:cover;
+    background-attachment: fixed;    
+}
+.activity-blog header .title{
+    text-align: center;
+    position:absolute;
+    bottom:12px;
+    left:25%;
+    width:50%;
+    background:rgba(255,255,255,0.66);    
+}
+.activity-blog header .title h1{
+    color:#039;
+}
+.activity-blog header .title h1 small{
+    color:#000;
+}
+.activity-blog .container{
+    text-align: justify;
+}
+.blog-info .info-item{
+    min-height: 405px;
+    background-size: auto 110%;
+    background-position: center;
+    background-repeat:no-repeat;
+    position: relative;
+    transition: all 0.5s;
+    margin:0px;
+    width:50%;
+    float:left;
+}
+.blog-info .info-item:hover{    
+    background-size: auto 100%;    
+}
+.blog-info .info-item:hover a{    
+    background:rgba(0,0,0,0.75);
+}
+.blog-info .info-item:hover .label{
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.75);
+}
+.blog-info .label{
+    position: absolute;
+    bottom: 8px;
+    left:8px;
+    padding:8px;
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.0);
+    transition: all 0.5s;
+    background-color:rgba(0,64,128,0.75);
+}
+.blog-info a{
+    text-align: center;
+    width:100%;
+    padding:8px;
+    font-family: 'Raleway',sans-serif;
+    font-weight: 300;
+    background:transparent;
+    color:#FFF;
+    position: absolute;
+    left:0px;
+    bottom:90px;
+    transition: all 0.5s;
+}

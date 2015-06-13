@@ -1,5 +1,4 @@
 <?php
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,7 +10,7 @@ class CORE {
     public $a_m;                // Modulo actual
     public $a_s;                // Seccion actual
     public $a_o;                // Opcion actual
-    private $modules = Array(); // Coleccion de Modulos cargados
+    public $modules = Array(); // Coleccion de Modulos cargados
     private $theme;             // Tema cargado
     public $CNN;
 
@@ -100,6 +99,44 @@ class CORE {
                 echo "<li><a href=\"./?m={$this->a_m}&s={$this->a_s}&o={$option["url"]}\"><i class=\"fa fa-{$option["icon"]}\"></i><span class=\"sb-text\"> {$option["name"]}</span></a></li>";
             }
             echo "</ul>";
+        }
+    }
+
+    public function home() {
+        global $m, $s, $o;
+        ?>
+        <h3><img src = "include/modules/<?php echo $m; ?>/icon.png" /> <?php echo $this->modules[$m]->name;
+        ?></h3>
+        <?php
+        $se = $this->modules[$m]->section;
+        foreach ($se as $section) {
+            if ($section['url'] != "home") {
+                ?>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:rgba(0,0,0,0.1);border-bottom:1px solid rgba(0,0,0,0.1);padding:8px;color:#039;">
+                        <b><img src="include/modules/<?php echo $m; ?>/s.<?php echo $section["url"]; ?>.png" /> <?php echo $section['name']; ?></b>
+                    </div>
+                    <div class="panel-body">
+                        <?php
+                        if (isset($this->modules[$m]->option[$section['url']])) {
+                            $op = $this->modules[$m]->option[$section['url']];
+                            ?>
+                            <ul class="nav nav-pills">
+                                <?php
+                                foreach ($op as $option) {
+                                    ?>
+                                    <li><a href="./?m=<?php echo $m; ?>&s=<?php echo $section['url']; ?>&o=<?php echo $option['url']; ?>"><?php echo $option['name']; ?></a></li>
+                                    <?php
+                                }
+                                ?>
+                            </ul>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                </div>
+                <?php
+            }
         }
     }
 

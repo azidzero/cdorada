@@ -38,7 +38,3 @@ if (isset($_REQUEST["o"])) {
 } else {
     $o = 0;
 }
-
-$CORE = new CORE($m, $s, $o, $CNN);
-$CORE->loadModule();
-$mods = $CORE->getModules();
