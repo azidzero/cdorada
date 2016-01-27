@@ -1,9 +1,9 @@
 <?php
 
 include("../../../inc/app.conf.php");
-$aColumns = array('id', 'name');
+$aColumns = array('id', 'name_es','status','iso_639_1');
 
-$sIndexColumn = "id";
+$sIndexColumn = "name_es";
 $sTable = "cms_translation_lang";
 $gaSql['user'] = DBU;
 $gaSql['password'] = DBP;
@@ -72,10 +72,20 @@ while ($aRow = mysqli_fetch_array($rResult))
 {
     $row = array();
     $row[0] = $aRow['id'];
-    $row[1] = html_entity_decode($aRow['name']);
-   // $row[2] = $aRow['iso_639_1'];
-   // $row[3] = $aRow['status'];
-
+    $row[1] = $aRow['name_es'];
+    if($aRow[2]==1&&$aRow[0]==14)
+    {
+        $row[2] ='<input type="checkbox" id="lang_'.$aRow[0].'" name="lang_'.$aRow[0].'" checked="checked" readonly="readonly"onclick="javascript: return false;"/>';
+    }
+else{
+    if($aRow[2]==1)
+    {
+     $row[2] ='<input type="checkbox" id="lang_'.$aRow[0].'" name="lang_'.$aRow[0].'" checked="checked" onchange="checklanguage('.$aRow[0].',0);"/>';   
+    }else{
+    $row[2] ='<input type="checkbox" id="lang_'.$aRow[0].'" name="lang_'.$aRow[0].'" onclick="checklanguage('.$aRow[0].',1);" />';
+    }
+}
+$row[3] =  utf8_decode($aRow['iso_639_1']);
     $output['aaData'][] = $row;
 }
 

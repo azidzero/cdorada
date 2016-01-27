@@ -1,3 +1,8 @@
+Date.prototype.addDays = function (days) {
+    var dat = new Date(this.valueOf());
+    dat.setDate(dat.getDate() + days);
+    return dat;
+};
 function goto(id) {
     var a = $('#' + id).offset().top - 114;
     $('.navbar-nav li').removeClass('active');
@@ -38,6 +43,7 @@ function pushMenu(id) {
         }
     }
 }
+
 function doSearch(id) {
     var chka = $('#useRange-' + id).is(':checked');
     if (chka == true) {
@@ -63,7 +69,7 @@ function doSearch(id) {
     var lang = getUrlVars()["lang"];
     $.ajax({
         methos: 'POST',
-        url: "include/web/web/search.home.php?lang="+lang,
+        url: "include/web/web/search.home.php?lang=" + lang,
         data: {
             i: id, // Section
             ra: range_a, // Range A
@@ -78,6 +84,7 @@ function doSearch(id) {
         $('#result-' + id).html(response);
     });
 }
+
 function chkSlider(id) {
     var a = $('#useRange-' + id).is(':checked');
     console.log(a);
@@ -87,6 +94,7 @@ function chkSlider(id) {
         $('#slider-range-' + id).slider('disable');
     }
 }
+
 function chkDates(id) {
     var a = $('#useDates-' + id).is(':checked');
     if (a == true) {
@@ -111,10 +119,41 @@ function modale(id) {
 function resize() {
     // $('section').css('min-height', $(window).height() * 0.8 + 'px');        
 }
+
 function getUrlVars() {
     var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
         vars[key] = value;
     });
     return vars;
+}
+
+function checkFilter() {
+    var error = 0;
+    var place = $('#place').val();
+    console.log(place);
+    var group = $('#group-property').val();
+    console.log(group);
+    var tipo = $('#tipo-property').val();
+    console.log(tipo);
+    var dini = $('#date_in-property').val();
+    var dend = $('#date_out-property').val();
+    if (dini == "") {
+        error++;
+    }
+    if (dend == "") {
+        error++;
+    }
+    if (error == 0) {
+        return true;
+    } else {
+        $.growl.error({title: "ERROR", message: "<i class=\"fa fa-calendar\"></i> Debe elegir rango de fechas"});
+        return false;
+    }
+}
+
+function round(num, dec) {
+    var lima = "e+" + dec;
+    var limb = "e-" + dec;
+    return +(Math.round(num + lima) + limb);
 }

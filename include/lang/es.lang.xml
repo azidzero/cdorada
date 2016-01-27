@@ -15,9 +15,6 @@
             <string name="social-youtube">You Tube</string>
             <string name="social-google-plus">Google Plus</string>
             <string name="menu-home">Inicio</string>
-            <string name="menu-property">Propiedades</string>
-            <string name="menu-rent">Alquiler</string>
-            <string name="menu-sale">Venta</string>
             <string name="menu-deal">Ofertas</string>
             <string name="menu-owner">Propietarios</string>
             <string name="menu-content">Actividades</string>
@@ -29,13 +26,55 @@
             <string name="show-more">Ver Más</string>
         </section>
         <section name="filter" description="Filtro">
-            <string name="title">Filtro</string>
+            <string name="title">Buscar alojamiento</string>
             <string name="default-place">Destinos</string>
+            <string name="default-room">Dormitorios</string>
             <string name="default-group">Personas</string>
             <string name="default-type">Tipo de Alojamiento</string>
+            <string name="default-arrival">Arribo</string>
+            <string name="default-departure">Salida</string>
+            <string name="str-advanced">Opciones Avanzadas</string>
+            <string name="range">Rango de precios</string>
             <string name="search-button">Buscar</string>
             <string name="label-ref">Referencia</string>
-            <string name="hint-ref">Buscar por refrencia...</string>                        
+            <string name="hint-ref">Buscar por refrencia...</string>            
+        </section>
+        <section name="result" description="Busqueda">
+            <string name="title">Resultados</string>
+            <string name="found-left">Se encontráron </string>
+            <string name="found-right"> resultados</string>
+            <string name="label-night"> Noches</string>
+            <string name="label-bedroom"> Dormitorio(s)</string>
+            <string name="label-people"> Persona(s)</string>
+            <string name="label-bathroom"> Baño(s)</string>
+            <string name="btn-more"> Más Información</string>
+            <string name="str-not-available"> No disponible para los dias de registro y/o salida de la semana elegidos</string>
+            <string name="show-list"> Ver Lista</string>
+            <string name="show-map"> Ver Mapa</string>
+            <string name="more-title"> Más Información</string>
+            <string name="more-close"> Cerrar</string>
+        </section>
+        <section name="moreinfo" description="Más información">
+            <string name="str-room">Habitacion(es)</string>
+            <string name="str-people">Capacidad</string>
+            <string name="str-type">Tipo</string>
+            <string name="str-locale">Ubicación</string>
+            <string name="check-a">Revisar Disponibilidad</string>
+            <string name="str-prize">Precio</string>
+            <string name="str-night">Noche(s)</string>
+            <string name="str-addon">Complementos</string>
+            <string name="str-book">Reservar</string>
+            <string name="str-detail">Informacion Detallada</string>
+            <string name="str-availability">Disponibilidad</string>
+            <string name="str-photo">Fotografías</string>
+            <string name="str-no-photo">Sin Fotografías</string>
+            <string name="str-map">Ubicación</string>
+        </section>
+        <section name="addon" description="Complementos">
+            <string name="addon-general">Generales</string>
+            <string name="addon-intertio">Interior</string>
+            <string name="addon-general">Exterior</string>
+            <string name="addon-general">Equipo</string>
         </section>
         <section name="deal" description="Ofertas">
             <string name="title">Últimas Ofertas</string>
@@ -63,6 +102,13 @@
         </section>                
     </sections>
     <modules>
-        
+        <section name="search" description="Buscar Alquiler">
+            <string name="filter-locale">Destinos</string>
+            <string name="filter-room">Dormitorios</string>
+            <string name="filter-people">Personas</string>
+            <string name="filter-type">Tipo de Alojamiento</string>
+            <string name="str-advanced">Opciones Avanzadas</string>            
+            
+        </section>
     </modules>
 </language>

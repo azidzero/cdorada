@@ -1,0 +1,49 @@
+body{
+    background-image:url(../images/background-login.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: bottom;    
+    
+}
+.login-area{
+    box-shadow: inset 0px 1px 2px rgba(0,0,0,0.75);
+    text-align: center;
+    background:rgba(0,0,0,0.8);
+    margin-top:10vh;
+    min-width:240px;
+    width:40vw;
+    border:1px solid rgba(0,0,0,0.25);
+    margin-left: 30vw;
+    border-radius: 8px;
+    color:#FFF;
+}
+.login-area table{
+    background:#FFF;
+}
+.hexagon {
+  position: relative;
+  width: 300px; 
+  height: 173.21px;
+  background-color: #64C7CC;
+  margin: 86.60px 0;
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+}
+
+.hexagon:before {
+  bottom: 100%;
+  border-bottom: 86.60px solid #64C7CC;
+}
+
+.hexagon:after {
+  top: 100%;
+  width: 0;
+  border-top: 86.60px solid #64C7CC;
+}

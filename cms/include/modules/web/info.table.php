@@ -1,10 +1,9 @@
 <?php
 
 include("../../../inc/app.conf.php");
-$aColumns = array('id', 'title', 'short_desc', 'content', 'category', 'fecha', 'status');
-
-$sIndexColumn = "id";
-$sTable = "web_info";
+$aColumns = array('a.id','a.uid','a.lang', 'a.title', 'a.short_desc', 'a.content', 'a.category','b.name','a.fecha', 'a.status');
+$sIndexColumn = "title";
+$sTable = "web_info_translate a";
 $gaSql['user'] = DBU;
 $gaSql['password'] = DBP;
 $gaSql['db'] = DBB;
@@ -44,7 +43,7 @@ if ($_GET['sSearch'] != "") {
     $sWhere = "";
 }
 
-$sQuery = "SELECT SQL_CALC_FOUND_ROWS " . str_replace(" , ", " ", implode(", ", $aColumns)) . " FROM   $sTable $sWhere $sOrder $sLimit";
+$sQuery = "SELECT SQL_CALC_FOUND_ROWS " . str_replace(" , ", " ", implode(", ", $aColumns)) . " FROM $sTable INNER JOIN web_info_category b ON(a.category=b.id) where a.lang='es' group by uid $sWhere $sOrder $sLimit";
 $rResult = mysqli_query($cnn, $sQuery) or die("#1 " . $sQuery . "<br/>" . mysqli_error());
 
 // Data set length after filtering
@@ -57,7 +56,7 @@ $iFilteredTotal = $aResultFilterTotal[0];
 $sQuery = "SELECT COUNT(" . $sIndexColumn . ") FROM $sTable";
 $rResultTotal = mysqli_query($cnn, $sQuery) or die("#3 " . $sQuery . "<br/>" . mysqli_error());
 $aResultTotal = mysqli_fetch_array($rResultTotal);
-$iTotal = $aResultTotal[0];
+$iTotal = $aResultTotal[0]/4;
 
 
 // Output
@@ -73,17 +72,15 @@ while ($aRow = mysqli_fetch_array($rResult)) {
     $row[0] = $aRow['id'];
     $row[1] = $aRow['title'];
     $row[2] = $aRow['short_desc'];
-    $row[3] = getData("web_info_category", "id", $aRow['category'], "name");
-    
+    $row[3] =  $aRow['name'];
     $row[4] = "<div class=\"btn-group\">";
     $row[4] .= "<button type=\"button\" class=\"btn btn-warning dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"false\">Opciones <span class=\"caret\"></span></button >";
     $row[4] .= "<ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">";
-    $row[4] .= "<li><a href=\"./?m=web&s=info&o=3&id={$aRow[0]}\"><i class=\"fa fa-edit\"></i>Editar</a></li>";
-    $row[4] .= "<li><a href=\"./?m=web&s=info&o=5&id={$aRow[0]}\"><i class=\"fa fa-trash\"></i> Eliminar</a></li>";
+    $row[4] .= "<li><a href=\"./?m=web&s=info&o=3&id={$aRow['uid']}\"><i class=\"fa fa-edit\"></i>Editar</a></li>";
+    $row[4] .= "<li><a href=\"./?m=web&s=info&o=5&id={$aRow['uid']}\"><i class=\"fa fa-trash\"></i> Eliminar</a></li>";
     $row[4] .= "</ul>";
     $row[4] .= "</div>";
     $output['aaData'][] = $row;
 }
 
 echo json_encode($output);
-?>

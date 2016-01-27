@@ -107,7 +107,7 @@ class CORE {
         ?>
         <h3><img src = "include/modules/<?php echo $m; ?>/icon.png" /> <?php echo $this->modules[$m]->name;
         ?></h3>
-        <?php
+            <?php
         $se = $this->modules[$m]->section;
         foreach ($se as $section) {
             if ($section['url'] != "home") {

@@ -1,0 +1,157 @@
+[
+    {
+        "name": "tecnickcom/tc-lib-color",
+        "version": "1.10.0",
+        "version_normalized": "1.10.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/tecnickcom/tc-lib-color.git",
+            "reference": "ff40ca244700c18e1d2d5082d8ecc1034cc720c5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/tecnickcom/tc-lib-color/zipball/ff40ca244700c18e1d2d5082d8ecc1034cc720c5",
+            "reference": "ff40ca244700c18e1d2d5082d8ecc1034cc720c5",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4"
+        },
+        "require-dev": {
+            "apigen/apigen": "^4.1.2",
+            "bartlett/php-compatinfo": "^5.0.0",
+            "pdepend/pdepend": "^2.2.2",
+            "phploc/phploc": "^2.1.5|^3.0.0",
+            "phpmd/phpmd": "^2.3.2",
+            "phpunit/phpunit": "4.8.19|^5.0.0",
+            "sebastian/phpcpd": "^2.0.2",
+            "squizlabs/php_codesniffer": "^2.5.0|^3.0.0"
+        },
+        "time": "2015-12-15 17:48:34",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Com\\Tecnick\\Color\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GNU-LGPL v3"
+        ],
+        "authors": [
+            {
+                "name": "Nicola Asuni",
+                "email": "info@tecnick.com",
+                "role": "lead"
+            }
+        ],
+        "description": "PHP library to manipulate various color representations",
+        "homepage": "http://www.tecnick.com",
+        "keywords": [
+            "cmyk",
+            "color",
+            "colors",
+            "colour",
+            "colours",
+            "hsl",
+            "hsla",
+            "javascript",
+            "rgb",
+            "rgba",
+            "tc-lib-color",
+            "web"
+        ]
+    },
+    {
+        "name": "tecnickcom/tc-lib-barcode",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/tecnickcom/tc-lib-barcode.git",
+            "reference": "ab8bcfac6d358b10811c9633a5ed3ffce0ea8c54"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/tecnickcom/tc-lib-barcode/zipball/ab8bcfac6d358b10811c9633a5ed3ffce0ea8c54",
+            "reference": "ab8bcfac6d358b10811c9633a5ed3ffce0ea8c54",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4",
+            "tecnickcom/tc-lib-color": "^1.8.0"
+        },
+        "require-dev": {
+            "apigen/apigen": "^4.1.2",
+            "bartlett/php-compatinfo": "^5.0.0",
+            "pdepend/pdepend": "^2.2.2",
+            "phploc/phploc": "^2.1.5|^3.0.0",
+            "phpmd/phpmd": "^2.3.2",
+            "phpunit/phpunit": "4.8.19|^5.0.0",
+            "sebastian/phpcpd": "^2.0.2",
+            "squizlabs/php_codesniffer": "^2.5.0|^3.0.0"
+        },
+        "time": "2015-12-14 20:05:34",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Com\\Tecnick\\Barcode\\": "src"
+            }
+        },
+        "license": [
+            "GNU-LGPL v3"
+        ],
+        "authors": [
+            {
+                "name": "Nicola Asuni",
+                "email": "info@tecnick.com",
+                "role": "lead"
+            }
+        ],
+        "description": "PHP library to generate linear and bidimensional barcodes",
+        "homepage": "http://www.tecnick.com",
+        "keywords": [
+            "3 of 9",
+            "ANSI MH10.8M-1983",
+            "CBC",
+            "CODABAR",
+            "CODE 11",
+            "CODE 128 A B C",
+            "CODE 39",
+            "CODE 93",
+            "Datamatrix",
+            "EAN 13",
+            "EAN 8",
+            "ECC200",
+            "Intelligent Mail Barcode",
+            "Interleaved 2 of 5",
+            "KIX",
+            "Klant",
+            "MSI",
+            "Onecode",
+            "PDF417",
+            "PHARMACODE",
+            "PHARMACODE TWO-TRACKS",
+            "PLANET",
+            "POSTNET",
+            "QR-Code",
+            "RMS4CC",
+            "Royal Mail",
+            "Standard 2 of 5",
+            "UPC",
+            "UPC-A",
+            "UPC-E",
+            "USD-3",
+            "USPS-B-3200",
+            "USS-93",
+            "barcode",
+            "tc-lib-barcode"
+        ],
+        "support": {
+            "source": "https://github.com/tecnickcom/tc-lib-barcode/tree/1.7.1",
+            "issues": "https://github.com/tecnickcom/tc-lib-barcode/issues"
+        }
+    }
+]

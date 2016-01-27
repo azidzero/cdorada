@@ -1,4 +1,4 @@
-<section>
+<section  id="ERROR404" style="margin-top:110px;">
     <div class="alert alert-danger">
         <h1>ERROR</h1>
         <p>

@@ -62,9 +62,9 @@
                 //address: "Rambla Catalunya no.24 43480 Vila-seca (Tarragona) España",
                 latLng: [41.109106, 1.148606],
                 options: {
-                    zoom: 16,                    
-                    center: [41.109106, 1.148606]
-                    
+                    zoom: 16,
+                    center: [41.109106, 1.148606],
+                    scrollwheel: false
                 }
             },
             styledmaptype: {
@@ -92,7 +92,7 @@
                 values: [
                     {latLng: [41.109106, 1.148606], data: 'Oficinas Centrales'}
                 ]
-            }
+            },
         });
     });
 

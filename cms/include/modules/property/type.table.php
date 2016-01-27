@@ -4,7 +4,7 @@ include("../../../inc/app.conf.php");
 $aColumns = array('id', 'name');
 
 $sIndexColumn = "id";
-$sTable = "cms_type";
+$sTable = "cms_property_type";
 $gaSql['user'] = DBU;
 $gaSql['password'] = DBP;
 $gaSql['db'] = DBB;
@@ -83,4 +83,3 @@ while ($aRow = mysqli_fetch_array($rResult)) {
 }
 
 echo json_encode($output);
-?>

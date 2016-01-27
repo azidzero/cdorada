@@ -1,7 +1,7 @@
 <?php
 
 include("../../../inc/app.conf.php");
-$aColumns = array('id', 'name', 'active','tipo','valor','required', 'unidad');
+$aColumns = array('id', 'name', 'valor', 'unidad', 'active');
 
 $sIndexColumn = "id";
 $sTable = "cms_property_extra";
@@ -68,49 +68,25 @@ $output = array(
     "aaData" => array()
 );
 
-while ($aRow = mysqli_fetch_array($rResult)) 
-{
+while ($aRow = mysqli_fetch_array($rResult)) {
     $row = array();
     $row[0] = $aRow['id'];
     $row[1] = $aRow['name'];
-     if($aRow['tipo']==0)
-     {
-         $row[2]="True/False";
-     }
-     if($aRow['tipo']==1)
-     {
-         $row[2]="Numerico";
-     }
-     if($aRow['tipo']==2)
-     {
-         $row[2]="Texto";
-     }
-     
-    if($aRow['active']==1)
-    {
-        $row[3] = "Activo";
+    $row[2] = $aRow['valor'];
+    $row[3] = $aRow['unidad'];
+
+    if ($aRow['active'] == 1) {
+        $row[4] = "Activo";
+    } else {
+        $row[4] = "Desactivado";
     }
-    else
-    {
-         $row[3] = "Desactivado";
-    }
-   if($aRow['required']==1)
-    {
-        $row[4] = "Requerido";
-    }
-    else
-    {
-         $row[4] = "No Requerido";
-    }
-    $row[5] = $aRow['unidad'];
-    $row[6] = $aRow['valor'];      
-        $row[7] = "<div class=\"btn-group\">";
-        $row[7] .= "<button type=\"button\" class=\"btn btn-warning dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"false\">Opciones <span class=\"caret\"></span></button >";
-        $row[7] .= "<ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">";
-        $row[7] .= "<li><a href=\"JavaScript:void(0)\" onclick=\"getJson('{$aRow[0]}','4')\"><i class=\"fa fa-edit\"></i>Editar</a></li>";
-        $row[7] .= "<li><a href=\"JavaScript:void(0)\" onclick=\"jsonid('{$aRow[0]}','4')\"><i class=\"fa fa-trash\"></i> Eliminar</a></li>";
-        $row[7] .= "</ul>";
-        $row[7] .= "</div>";   
+    $row[5] = "<div class=\"btn-group\">";
+    $row[5] .= "<button type=\"button\" class=\"btn btn-warning dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"false\">Opciones <span class=\"caret\"></span></button >";
+    $row[5] .= "<ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">";
+    $row[5] .= "<li><a href=\"JavaScript:void(0)\" onclick=\"editextra('{$aRow[0]}','4')\"><i class=\"fa fa-edit\"></i>Editar</a></li>";
+    $row[5] .= "<li><a href=\"JavaScript:void(0)\" onclick=\"delextra('{$aRow[0]}','4')\"><i class=\"fa fa-trash\"></i> Eliminar</a></li>";
+    $row[5] .= "</ul>";
+    $row[5] .= "</div>";
     $output['aaData'][] = $row;
 }
 

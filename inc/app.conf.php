@@ -3,13 +3,19 @@
 /*
  * # Lenguaje del Sitio o sistema
  */
-
+date_default_timezone_set('America/Mexico_City');
+error_reporting(E_ALL);
+ini_set("error_reporting", E_ALL);
+/*
+ * Language
+ */
 include("lang.class.php");
 if (!isset($_REQUEST["lang"])) {
     header("Location:./es/");
 } else {
     $lang = $_REQUEST["lang"];
 }
+
 /*
  * Modulo de trabajo o sitio Web
  */
@@ -23,7 +29,7 @@ if (isset($_REQUEST["m"])) {
  */
 if (isset($_REQUEST["s"])) {
     if ($m == 'buscar') {
-        $s = "search";        
+        $s = "search";
         $_REQUEST["view"] = $_REQUEST["s"];
         $_REQUEST["what"] = $_REQUEST["o"];
         $_REQUEST["where"] = $_REQUEST["se"];
@@ -63,5 +69,8 @@ setcookie("lang", $lang);
 
 include("web.class.php"); /* Common Functions */
 include("common.func.php"); /* Common Functions */
+include("paypal.conf.php"); /* PayPal Functions */
+include('Sermepa/Tpv/Tpv.php'); /* SysRed */
+session_start();
 
 $web = new web($CNN);

@@ -1,0 +1,32 @@
+<language name="ES" iso="ES-ES" locale="Espanol">
+    <module>
+        <string name="caption">Sitio Web</string>
+    </module>
+    <sections>
+        <section name="featured">
+            
+        </section>
+        <section name="activity">
+            <string name="title">Actividades</string>                        
+            <string name="post-title">Título</string>                        
+            <string name="post-label-required">Requerido</string>            
+            <string name="post-short-desc">Descripción Corta</string>
+            <string name="post-cat">Categoría</string>
+            <string name="post-cat-default">Ninguna</string>
+            <string name="post-cover">Portada</string>
+            <string name="post-content">Contenido</string>            
+            <string name="post-btn-save">Guardar</string>            
+        </section>
+        <section name="info">
+            <string name="title">Actividades</string>                        
+            <string name="post-title">Título</string>                        
+            <string name="post-label-required">Requerido</string>            
+            <string name="post-short-desc">Descripción Corta</string>
+            <string name="post-cat">Categoría</string>
+            <string name="post-cat-default">Ninguna</string>
+            <string name="post-cover">Portada</string>
+            <string name="post-content">Contenido</string>            
+            <string name="post-btn-save">Guardar</string>            
+        </section>
+    </sections>
+</language>

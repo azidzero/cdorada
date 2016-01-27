@@ -1,9 +1,9 @@
-<language name="EN" iso="ES-ES" locale="English">        
+<language name="ES" iso="ES-ES" locale="Espanol">        
     <sections>
-        <section name="header">
+        <section name="header" description="Encabezado">
             <string name="title">Planet Costa Dorada</string>            
         </section>
-        <section name="navbar">
+        <section name="navbar" description="navegación">
             <string name="responsive-menu">Alternar navegación</string>		
             <string name="alt-logo">Planet Costa Dorada</string>		
             <string name="flag-es">Español</string>
@@ -14,47 +14,87 @@
             <string name="social-twitter">Twitter</string>
             <string name="social-youtube">You Tube</string>
             <string name="social-google-plus">Google Plus</string>
-            <string name="menu-home">Inicio</string>
-            <string name="menu-property">Propiedades</string>
-            <string name="menu-rent">Alquiler</string>
-            <string name="menu-sale">Venta</string>
-            <string name="menu-deal">Ofertas</string>
-            <string name="menu-owner">Propietarios</string>
-            <string name="menu-content">Actividades</string>
-            <string name="menu-info">Info Viaje</string>
-            <string name="menu-about">Empresa</string>            
-            <string name="menu-contact">Contacto</string>
+            <string name="menu-home">Home</string>
+            <string name="menu-deal">Deal</string>
+            <string name="menu-owner">Owners</string>
+            <string name="menu-content">Activities</string>
+            <string name="menu-info">Info Travel</string>
+            <string name="menu-about">Company</string>            
+            <string name="menu-contact">Contact</string>
         </section>
-        <section name="home">
-            <string name="show-more">Ver Más</string>
+        <section name="home" description="Inicio">
+            <string name="show-more">See more</string>
         </section>
-        <section name="filter">
-            <string name="title">Filtro</string>
-            <string name="all-users">Todos</string>
-            <string name="all-mode">Todos</string>
-            <string name="all-type">Todos</string>
-            <string name="placeholder-locate">Seleccionar destino</string>
-            <string name="range">Con un costo entre </string>
-            <string name="filter-rent">en Alquiler</string>
-            <string name="filter-sale">en Venta</string>
-            <string name="filter-deal">en Oferta</string>
-            <string name="search-button">Buscar</string>
-            <string name="search-property">Estoy buscando propiedades </string>
-        </section>        
-        <section name="property">
-            <string name="name">Propiedades</string>
-        </section>        
-        <section name="owner"></section>
-        <section name="content"></section>
-        <section name="about">
-            
+        <section name="filter" description="Filtro">
+            <string name="title">Filter</string>
+            <string name="default-place">Locations</string>
+            <string name="default-room">Rooms</string>
+            <string name="default-group">People</string>
+            <string name="default-type">Property type</string>
+            <string name="default-arrival">Arrival</string>
+            <string name="default-departure">Departure</string>
+            <string name="str-advanced">Advanced Options</string>
+            <string name="range">Range</string>
+            <string name="search-button">Search</string>
+            <string name="label-ref">Reference</string>
+            <string name="hint-ref">Search by reference...</string>                        
         </section>
-        <section name="contact">
+        <section name="result" description="Busqueda">
+            <string name="title">Results</string>
+            <string name="found-left"> </string>
+            <string name="found-right"> results found</string>
+            <string name="label-night"> Night's</string>
+            <string name="label-bedroom"> Bedrooms</string>
+            <string name="label-people"> People</string>
+            <string name="label-bathroom"> Bathrooms</string>
+            <string name="btn-more"> More information</string>
+            <string name="str-not-available"> Not available for registration day and / or week chosen</string>
+            <string name="show-list"> List view</string>
+            <string name="show-map"> Map view</string>
+            <string name="more-title"> More information</string>
+            <string name="more-close"> Close</string>
+        </section>
+        <section name="moreinfo" description="Más información">
+            <string name=""></string>
+            <string name="str-room">Room's</string>
+            <string name="str-people">People</string>
+            <string name="str-type">Type</string>
+            <string name="str-locale">Location</string>
+            <string name="check-a">Check availability</string>
+            <string name="str-prize">prize</string>
+            <string name="str-night">night's</string>
+            <string name="str-addon">Add on</string>
+            <string name="str-book">Book</string>
+            <string name="str-detail">Detailed Information</string>
+            <string name="str-availability">Availability</string>
+            <string name="str-photo">Pictures</string>
+            <string name="str-no-photo">No pictures</string>
+            <string name="str-map">Location</string>
+        </section>
+        <section name="deal" description="Ofertas">
+            <string name="title">Special Deal's</string>
+            <string name="label-bedroom">Bedrooms</string>
+            <string name="label-capacity">Capacity</string>
+            <string name="label-bathroom">Bathrooms</string>
+            <string name="calendar-title">Availability Calendar</string>
+            <string name="button-all">See all deal</string>
+        </section>
+        <section name="owner" description="Propietarios">
+            <string name="title">Owners</string>
+        </section>
+        <section name="activity" description="Actividades">
+            <string name="title">Activities</string>
+        </section>
+        <section name="info" description="Información del Viaje">
+            <string name="title">Info. Travel</string>
+        </section>
+        <section name="about" description="Empresa">
+            <string name="titile">Company</string>
+        </section>
+        <section name="contact" description="Contactanos">
+            <string name="title">Contact</string>
             <string name="atencion-titulo">Horario de Atención</string>
-        </section>
-        <section name="search">
-            <string name="title">Busqueda</string>
-        </section>
+        </section>                
     </sections>
     <modules>
         

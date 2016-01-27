@@ -1,9 +1,9 @@
 <?php
 
 include("../../../inc/app.conf.php");
-$aColumns = array('id', 'title', 'prize', 'room', 'capacity', 'tipo', 'modo');
+$aColumns = array('name','title','id', 'hutt');
 
-$sIndexColumn = "id";
+$sIndexColumn = "title";
 $sTable = "cms_property";
 $gaSql['user'] = DBU;
 $gaSql['password'] = DBP;
@@ -29,7 +29,7 @@ if (isset($_GET['iSortCol_0'])) {
     }
     $sOrder = substr_replace($sOrder, "", -2);
     if ($sOrder == "ORDER BY") {
-        $sOrder = "";
+        $sOrder = " status  asc";
     }
 }
 $sWhere = "";
@@ -67,27 +67,23 @@ $output = array(
     "iTotalDisplayRecords" => $iFilteredTotal,
     "aaData" => array()
 );
-
+$cc=1;
 while ($aRow = mysqli_fetch_array($rResult)) {
     $row = array();
-    $row[0] = $aRow['id'];
-    $row[1] = $aRow['title'];
-    $row[2] = $aRow['prize'];
-    $row[3] = $aRow['room'];
-    $row[4] = $aRow['capacity'];
-    $row[5] = $aRow['tipo'];
-    $row[6] = $aRow['modo'];
-    $row[7] = "<div class=\"btn-group\">";
-    $row[7] .= "<button type=\"button\" class=\"btn btn-warning dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"false\">Opciones <span class=\"caret\"></span></button >";
-    $row[7] .= "<ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">";
-    //$row[7] .= "<li><a href=\"JavaScript:void(0)\" onclick=\"a('{$aRow[0]}','0')\"><i class=\"fa fa-edit\"></i>Editar</a></li>";
-     $row[7] .= "<li><a href=\"./?m=property&s=housing&o=3&id={$aRow[0]}\"  title=\"Editar\"><i class=\"fa fa-edit\"></i>Editar</a></li>";
-    $row[7] .= "<li><a href=\"JavaScript:void(0)\" onclick=\"jdtable('{$aRow[0]}','7')\"><i class=\"fa fa-trash\"></i> Eliminar</a></li>";
-     $row[7] .= "<li><a href=\"./?m=property&s=housing&o=7&id={$aRow[0]}\"  title=\"galeria\"><i class=\"fa fa-picture-o\"></i>Galeria</a></li>";
-    $row[7] .= "</ul>";
-    $row[7] .= "</div>";
+    $row[0] = $cc;
+    $row[1] = utf8_encode($aRow['name']);
+    $row[2] = utf8_encode($aRow['title']);
+    $row[3] = utf8_encode($aRow['hutt']);
+    $row[4] = "<div class=\"btn-group\">";
+    $row[4] .= "<button type=\"button\" class=\"btn btn-warning dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"false\"><i class=\"fa fa-bars\"></i>&nbsp;<span class=\"caret\"></span></button >";
+    $row[4] .= "<ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">";
+    $row[4] .= "<li><a href=\"./?m=property&s=housing&o=3&id={$aRow['id']}\"  title=\"Editar\"><i class=\"fa fa-edit\"></i>Editar</a></li>";
+    $row[4] .= "<li><a href=\"JavaScript:void(0);\" onclick=\"jdtable('{$aRow['id']}','7')\"><i class=\"fa fa-trash\"></i> Eliminar</a></li>";
+    $row[4] .= "<li><a href=\"./?m=property&s=housing&o=7&id={$aRow[1]}\"  title=\"galeria\"><i class=\"fa fa-picture-o\"></i>Galeria</a></li>";
+    $row[4] .= "<li><a  href=\"JavaScript:void(0);\" onclick=\"clon_house('{$aRow['id']}','7')\"><i class=\"fa fa-files-o\"></i>Clonar</a></li>";
+    $row[4] .= "</ul>";
+    $row[4] .= "</div>";
     $output['aaData'][] = $row;
+    $cc++;
 }
-
 echo json_encode($output);
-?>

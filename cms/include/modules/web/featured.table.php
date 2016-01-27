@@ -1,10 +1,10 @@
 <?php
 
 include("../../../inc/app.conf.php");
-$aColumns = array('id', 'name', 'active','tipo','valor','required', 'unidad');
+$aColumns = array('id', 'uid', 'lang','title','caption','url', 'status');
 
 $sIndexColumn = "id";
-$sTable = "cms_property_general";
+$sTable = "web_featured_translate";
 $gaSql['user'] = DBU;
 $gaSql['password'] = DBP;
 $gaSql['db'] = DBB;
@@ -32,19 +32,21 @@ if (isset($_GET['iSortCol_0'])) {
         $sOrder = "";
     }
 }
+
 $sWhere = "";
 if ($_GET['sSearch'] != "") {
     $sWhere = "WHERE ";
     for ($i = 0; $i < count($aColumns); $i++) {
 
-        $sWhere .= $aColumns[$i] . " LIKE '%" . mysqli_real_escape_string($cnn, $_GET['sSearch']) . "%' OR ";
+        $sWhere .= $aColumns[$i] . " LIKE '%" . mysqli_real_escape_string($cnn, $_GET['sSearch']) . "%' and lang='es' OR ";
     }
     $sWhere = substr_replace($sWhere, "", -3);
 } else {
-    $sWhere = "";
+    $sWhere = "WHERE lang='es'";
+    
 }
-
-$sQuery = "SELECT SQL_CALC_FOUND_ROWS " . str_replace(" , ", " ", implode(", ", $aColumns)) . " FROM   $sTable $sWhere $sOrder $sLimit";
+$sOrder = "GROUP BY uid " . $sOrder;
+$sQuery = "SELECT SQL_CALC_FOUND_ROWS " . str_replace(" , ", " ", implode(", ", $aColumns)) . " FROM $sTable $sWhere $sOrder $sLimit";
 $rResult = mysqli_query($cnn, $sQuery) or die("#1 " . $sQuery . "<br/>" . mysqli_error());
 
 // Data set length after filtering
@@ -54,7 +56,7 @@ $aResultFilterTotal = mysqli_fetch_array($rResultFilterTotal);
 $iFilteredTotal = $aResultFilterTotal[0];
 
 // Total data set length
-$sQuery = "SELECT COUNT(" . $sIndexColumn . ") FROM $sTable";
+$sQuery = "SELECT COUNT(" . $sIndexColumn . ") FROM $sTable ";
 $rResultTotal = mysqli_query($cnn, $sQuery) or die("#3 " . $sQuery . "<br/>" . mysqli_error());
 $aResultTotal = mysqli_fetch_array($rResultTotal);
 $iTotal = $aResultTotal[0];
@@ -68,49 +70,20 @@ $output = array(
     "aaData" => array()
 );
 
-while ($aRow = mysqli_fetch_array($rResult)) 
-{
+while ($aRow = mysqli_fetch_array($rResult)) {
     $row = array();
-    $row[0] = $aRow['id'];
-    $row[1] = $aRow['name'];
-     if($aRow['tipo']==0)
-     {
-         $row[2]="True/False";
-     }
-     if($aRow['tipo']==1)
-     {
-         $row[2]="Numerico";
-     }
-     if($aRow['tipo']==2)
-     {
-         $row[2]="Texto";
-     }
+    $row[0] = $aRow['uid'];
+    $row[1] = $aRow['title'];
+    $row[2] = $aRow['caption'];    
+    
      
-    if($aRow['active']==1)
-    {
-        $row[3] = "Activo";
-    }
-    else
-    {
-         $row[3] = "Desactivado";
-    }
-   if($aRow['required']==1)
-    {
-        $row[4] = "Requerido";
-    }
-    else
-    {
-         $row[4] = "No Requerido";
-    }
-    $row[5] = $aRow['unidad'];
-    $row[6] = $aRow['valor'];      
-        $row[7] = "<div class=\"btn-group\">";
-        $row[7] .= "<button type=\"button\" class=\"btn btn-warning dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"false\">Opciones <span class=\"caret\"></span></button >";
-        $row[7] .= "<ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">";
-        $row[7] .= "<li><a href=\"JavaScript:void(0)\" onclick=\"getJson('{$aRow[0]}','0')\"><i class=\"fa fa-edit\"></i>Editar</a></li>";
-        $row[7] .= "<li><a href=\"JavaScript:void(0)\" onclick=\"jsonid('{$aRow[0]}')\"><i class=\"fa fa-trash\"></i> Eliminar</a></li>";
-        $row[7] .= "</ul>";
-        $row[7] .= "</div>";   
+        $row[3] = "<div class=\"btn-group\">";
+        $row[3] .= "<button type=\"button\" class=\"btn btn-warning dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"false\">Opciones <span class=\"caret\"></span></button >";
+        $row[3] .= "<ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">";
+        $row[3] .= "<li><a href=\"./?m=web&s=featured&o=3&id={$aRow['uid']}\" ><i class=\"fa fa-edit\"></i>Editar</a></li>";
+        $row[3] .= "<li><a href=\"./?m=web&s=featured&o=5&id={$aRow['uid']}\" ><i class=\"fa fa-trash\"></i> Eliminar</a></li>";
+        $row[3] .= "</ul>";
+        $row[3] .= "</div>";   
     $output['aaData'][] = $row;
 }
 

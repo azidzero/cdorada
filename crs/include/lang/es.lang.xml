@@ -1,0 +1,68 @@
+<language name="ES" iso="ES-ES" locale="Espanol">        
+    <sections>
+        <section name="header" description="Encabezado">
+            <string name="title">Planet Costa Dorada</string>            
+        </section>
+        <section name="navbar" description="navegación">
+            <string name="responsive-menu">Alternar navegación</string>		
+            <string name="alt-logo">Planet Costa Dorada</string>		
+            <string name="flag-es">Español</string>
+            <string name="flag-en">English</string>
+            <string name="flag-fr">Français</string>
+            <string name="flag-ru">русский</string>
+            <string name="social-facebook">Facebook</string>
+            <string name="social-twitter">Twitter</string>
+            <string name="social-youtube">You Tube</string>
+            <string name="social-google-plus">Google Plus</string>
+            <string name="menu-home">Inicio</string>
+            <string name="menu-property">Propiedades</string>
+            <string name="menu-rent">Alquiler</string>
+            <string name="menu-sale">Venta</string>
+            <string name="menu-deal">Ofertas</string>
+            <string name="menu-owner">Propietarios</string>
+            <string name="menu-content">Actividades</string>
+            <string name="menu-info">Info Viaje</string>
+            <string name="menu-about">Empresa</string>            
+            <string name="menu-contact">Contacto</string>
+        </section>
+        <section name="home" description="Inicio">
+            <string name="show-more">Ver Más</string>
+        </section>
+        <section name="filter" description="Filtro">
+            <string name="title">Filtro</string>
+            <string name="default-place">Destinos</string>
+            <string name="default-group">Personas</string>
+            <string name="default-type">Tipo de Alojamiento</string>
+            <string name="search-button">Buscar</string>
+            <string name="label-ref">Referencia</string>
+            <string name="hint-ref">Buscar por refrencia...</string>                        
+        </section>
+        <section name="deal" description="Ofertas">
+            <string name="title">Últimas Ofertas</string>
+            <string name="label-bedroom">Dormitorio(s)</string>
+            <string name="label-capacity">Capacidad</string>
+            <string name="label-bathroom">Baño(s)</string>
+            <string name="calendar-title">Calendario de Disponibilidad</string>
+            <string name="button-all">Ver todas las ofertas</string>
+        </section>
+        <section name="owner" description="Propietarios">
+            <string name="title">Propietarios</string>
+        </section>
+        <section name="activity" description="Actividades">
+            <string name="title">Actividades</string>
+        </section>
+        <section name="info" description="Información del Viaje">
+            <string name="title">Info. Viaje</string>
+        </section>
+        <section name="about" description="Empresa">
+            <string name="titile">Empresa</string>
+        </section>
+        <section name="contact" description="Contactanos">
+            <string name="title">Contacto</string>
+            <string name="atencion-titulo">Horario de Atención</string>
+        </section>                
+    </sections>
+    <modules>
+        
+    </modules>
+</language>

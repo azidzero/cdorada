@@ -1,0 +1,1 @@
+SELECT * from crs_reserva_property WHERE  pid='28' AND end>'2015-11-01' and ini < '2015-11-01'  OR pid='28' and ini<'2015-11-30' AND end>'2015-11-01' 

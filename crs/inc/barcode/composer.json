@@ -1,0 +1,11 @@
+{
+    "require": {
+        "tecnickcom/tc-lib-barcode": "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:tecnickcom/tc-lib-barcode.git"
+        }
+    ]
+}

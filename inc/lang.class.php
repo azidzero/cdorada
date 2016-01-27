@@ -16,12 +16,22 @@ class lang {
     function loadModule($module) {
         $lang = $this->lang_source;
         $file = "include/lang/$lang.lang.xml";
-        if (file_exists($file)) {
+        $dfile = "include/lang/es.lang.xml";
+        if (file_exists($file) || file_exists("../../../" . $file)) {
+            if (file_exists($file)) {
+                $data = mb_convert_encoding(file_get_contents($file), 'UTF-8');
+            } else {
+                $data = mb_convert_encoding(file_get_contents("../../../" . $file), 'UTF-8');
+            }
+            $xml = new SimpleXMLElement($data);
+            $this->XML = $xml;
+        } elseif (file_exists($dfile) || file_exists("../" . $dfile) || file_exists("../../" . $dfile)) {
+            $file = "include/lang/es.lang.xml";
             $data = mb_convert_encoding(file_get_contents($file), 'UTF-8');
             $xml = new SimpleXMLElement($data);
             $this->XML = $xml;
         } else {
-            $file = "include/lang/es.lang.xml";
+            echo "<span class=\"label label-danger\">Not Found!!! $file: " . __DIR__ . "</span>";
         }
     }
 
@@ -38,6 +48,9 @@ class lang {
                 $output = $string;
                 break;
             }
+        }
+        if ($output == "") {
+            $output = "%$str%";
         }
         return utf8_decode($output);
     }

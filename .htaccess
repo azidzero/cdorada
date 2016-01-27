@@ -19,10 +19,10 @@ RewriteCond %{REQUEST_URI} !^/?(cms|crm|crs|css|js)/?\.(css|js|php)$
 RewriteRule ^([^\/.]+)/([^\/.]+)/([^\/.]+)/([^\/.]+)/?$ /index.php?lang=$1&m=$2&s=$3&o=$4 [L,NC,QSA]
 # LANG + MODULE + SECTION
 RewriteCond %{REQUEST_URI} !^/?(cms|crm|crs|css|js)/
-RewriteRule ^([^\/.]+)/([^\/.]+)/([^\/.]+)/?$ /index.php?lang=$1&m=$2&s=$3 [L,NC]
+RewriteRule ^([^\/.]+)/([^\/.]+)/([^\/.]+)/?$ /index.php?lang=$1&m=$2&s=$3 [L,NC,QSA]
 # LANG + MODULE
 RewriteCond %{REQUEST_URI} !^/?(cms|crm|crs|css|js)/
-RewriteRule ^([^\/.]+)/([^\/.]+)/?$ /index.php?lang=$1&m=$2 [L,NC]
+RewriteRule ^([^\/.]+)/([^\/.]+)/?$ /index.php?lang=$1&m=$2 [L,NC,QSA]
 # LANG
 RewriteCond %{REQUEST_URI} !^/?(cms|crm|crs|css|js|include)/
-RewriteRule ^([^\/.]+)/?$ /index.php?lang=$1 [L,NC]
+RewriteRule ^([^\/.]+)/?$ /index.php?lang=$1 [L,NC,QSA]

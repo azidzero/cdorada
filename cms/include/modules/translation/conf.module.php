@@ -12,9 +12,9 @@ $mod->name = "Traduccion";
 $mod->icon = "translation";
 
 $mod->addSection('Lenguajes', 'lang');
-$mod->addOption('lang', 'Agregar', 0);
-$mod->addOption('lang', 'Administrar', 2);
+//$mod->addOption('lang', 'Agregar', 0);
+//$mod->addOption('lang', 'Administrar', 2);
 
-$mod->addSection('Traducir', 'translate');
-$mod->addOption('translate', 'Agregar', 0);
-$mod->addOption('translate', 'Administrar', 2);
+$mod->addSection('Traducciones', 'translate');
+//$mod->addOption('translate', 'Agregar', 0);
+//$mod->addOption('translate', 'Administrar', 2);

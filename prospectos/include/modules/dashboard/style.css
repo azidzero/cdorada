@@ -1,0 +1,179 @@
+img {
+    height: auto;
+    max-width: 100%;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 20px 5%;
+}
+form header {
+    margin: 0 0 20px 0; 
+}
+form header div {
+    font-size: 90%;
+    color: #999;
+}
+form header h2 {
+    margin: 0 0 5px 0;
+}
+form > div {
+    clear: both;
+    overflow: hidden;
+    padding: 1px;
+    margin: 0 0 10px 0;
+}
+form > div > fieldset > div > div {
+    margin: 0 0 5px 0;
+}
+form > div > label,
+legend {
+    width: 25%;
+    float: left;
+    padding-right: 10px;
+}
+form > div > div,
+form > div > fieldset > div {
+    width: 75%;
+    float: right;
+}
+form > div > fieldset label {
+    font-size: 90%;
+}
+fieldset {
+    border: 0;
+    padding: 0;
+}
+
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=password],
+textarea {
+    width: 100%;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=password] {
+    width: 50%;
+}
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=url]:focus,
+input[type=password]:focus,
+textarea:focus {
+    outline: 0;
+    border-color: #4697e4;
+}
+
+@media (max-width: 600px) {
+    form > div {
+        margin: 0 0 15px 0; 
+    }
+    form > div > label,
+    legend {
+        width: 100%;
+        float: none;
+        margin: 0 0 5px 0;
+    }
+    form > div > div,
+    form > div > fieldset > div {
+        width: 100%;
+        float: none;
+    }
+    input[type=text],
+    input[type=email],
+    input[type=url],
+    input[type=password],
+    textarea,
+    select {
+        width: 110%; 
+    }
+}
+@media (min-width: 1200px) {
+    form > div > label,
+    legend {
+        text-align: right;
+    }
+}
+.gmap3{
+    margin: 20px auto;
+    border: 1px dashed #C0C0C0;
+    width: 500px;
+    height: 250px;
+}
+.hidd{display: none}
+.show{display: inline }
+.hover {
+    cursor:pointer;
+}
+.hover:hover{
+    color: #3a7999;
+    box-shadow: inset 0 0 0 3px #3a7999;
+    cursor:pointer;
+}
+.trash
+{
+
+}
+.trash:hover{
+    color:#E74C3C;
+}
+
+    @media only screen and (max-width: 600px) {
+        /* Force table to not be like tables anymore */
+        #no-more-tables table,
+        #no-more-tables thead,
+        #no-more-tables tbody,
+        #no-more-tables th,
+        #no-more-tables td,
+        #no-more-tables tr {
+            display: block;
+        }
+
+        /* Hide table headers (but not display: none;, for accessibility) */
+        #no-more-tables thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+        #no-more-tables tr { border: none }
+
+        #no-more-tables td {
+            /* Behave like a "row" */
+            border: none;
+            border-bottom: 0px solid #eee;
+            position: relative;
+            padding-left: 30%;
+            white-space: normal;
+            text-align:left;
+        }
+
+        #no-more-tables td:before {
+            /* Now like a table header */
+            position: absolute;
+            /* Top/left values mimic padding */
+            top: 6px;
+            left: 6px;
+            width: 15%;
+            padding-right: 10px;
+            white-space: nowrap;
+            text-align:left;
+            font-weight: bold;
+        }
+
+        /*
+        Label the data
+        */
+        #no-more-tables td:before { content: attr(data-title); }
+    }

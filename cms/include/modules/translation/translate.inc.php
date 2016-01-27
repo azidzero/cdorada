@@ -1,105 +1,87 @@
-<h4>Traducciones</h4>
 <?php
-$path = "../include/lang";
-if (is_dir($path)) {
-    $o = opendir($path);
-    while ($file = readdir($o)) {
-        if ($file != "." && $file != ".." && strstr($file, ".xml") != "") {
-            // echo $file . "<br/>";
-        }
-    }
-    $tmp = $path . "/es.lang.xml";
-    $xml = simplexml_load_file($tmp);
-    $xml_array = xml2array($xml);
-    /*
-     * Secciones
-     */
-    $sections = $xml_array['sections']['section'];
-    foreach ($sections as $section) {
-        $link[] = $section["@attributes"]['name'];
-    }
-    echo "<h1>{$xml_array["@attributes"]["name"]} - <small>{$xml_array["@attributes"]["locale"]}</small></h1>";
-    ?>
-    <div role="tabpanel">
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-            <?php
-            for ($i = 0; $i < count($link); $i++) {
-                if ($i == 0) {
-                    echo '<li role="presentation" class="active"><a href="#' . $link[$i] . '" aria-controls="home" role="tab" data-toggle="tab">' . $link[$i] . '</a></li>';
-                } else {
-                    echo '<li role="presentation" class=""><a href="#' . $link[$i] . '" aria-controls="home" role="tab" data-toggle="tab">' . $link[$i] . '</a></li>';
-                }
-            }
-            ?>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <?php
-            $sections = $xml_array['sections']['section'];
-            $x = 0;
-            foreach ($sections as $section) {
-                ?>
-                <div role="tabpanel" class="tab-pane <?php
-                if ($x == 0) {
-                    echo "active";
-                }
-                ?>" id="<?php echo $section["@attributes"]['name']; ?>">
-                    <?php
-                    echo "<h3>" . $section["@attributes"]['name'] . " <small>{$section["@attributes"]['description']}</small></h3>";
-                    if (isset($section['string'])) {
-                        $string = $section['string'];
-                        if (is_array($string)) {
-                            echo "<table class=\"table table-condensed\">";
-                            foreach ($string as $str) {
-                                echo "<tr>";
-                                echo "<td>";
-                                echo "<div class=\"input-group\">";
-                                if (isset($str["@attributes"]["name"])) {
-                                    echo "<span class=\"input-group-addon\">{$str["@attributes"]["name"]}</span>";
-                                }
-                                if (isset($str["@value"])) {
-                                    echo "<input class=\"form-control\" id=\"{$str["@attributes"]["name"]}\" value=\"{$str["@value"]}\" />";
-                                }
-                                echo "</div>";
-                                echo "</td>";
-                                echo "</tr>";
-                            }
-                            echo "</table>";
-                        } else {
-                            echo "<pre>";
-                            print_r($section['string']);
-                            echo "</pre>";
-                        }
-                    }
-                    ?>
-                </div>
+error_reporting(0);
+//include_once("class.array2xml2array.php");
+require_once('Array2XML.php');
+$o = $_REQUEST['o'];
+switch ($o) {
+    case 0:
+        $traeactivos = mysqli_query($CNN, "select * from cms_translation_lang where status=1");
+        ?><select id="lang_trad" name="lang_trad" onload="traeform();" onchange="traeform();">
+            <option></option>
+           <!-- <optgroup label="-">
+                <option value="p">Principales</option>
+            </optgroup>-->
+            <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp;-Idiomas-">
                 <?php
-                $x++;
+                while ($l = mysqli_fetch_array($traeactivos)) {
+                    ?><option value="<?php echo $l['id']; ?>"><?php echo $l['name_es']; ?></option><?php
+                }
+                ?>
+            </optgroup>
+        </select>
+        <div id="form_lang" name="form_lang"></div>
+        <?php
+        break;
+    case 1:
+       /*  echo "<pre>";
+          print_r($_REQUEST);
+          echo "</pre>"; */
+        $lang = filter_input(INPUT_POST, "langu");
+        $idiom = "";
+        $traeidiom = mysqli_query($CNN, "select * from cms_translation_lang where iso_639_1='$lang'") or $errlang = "error al guardar el lenguaje" . mysqli_error($CNN);
+        if (!isset($errlang)) {
+            while ($l = mysqli_fetch_array($traeidiom)) {
+                $idiom = $l['name_es'];
             }
-            ?>
-        </div>
-    </div>
-    <?php
-} else {
-    echo "Error: " . $path;
+        }
+        $elxml = "<language name=\"" . strtoupper($lang) . "\" ISO=\"" . strtoupper($lang) . "-" . strtoupper($lang) . "\" locale=\"" . $idiom . "\">\n"
+                . "\t<sections>\n";
+        $pad = explode("|", filter_input(INPUT_POST, "padres"));
+        $description = explode("|", filter_input(INPUT_POST, "description"));
+        $descpa = explode("|", filter_input(INPUT_POST, "descpa"));
+        $hijo = filter_input(INPUT_POST, "arr_hijos");
+        $nvarr = explode("|", $hijo);
+        for ($xx = 0; $xx < count($nvarr); $xx++) {
+            $nvarr[$xx] = explode(">", $nvarr[$xx]);
+        }
+         /*echo "<pre>";
+          print_r($nvarr[0]);
+          echo "</pre>"; */
+        for ($i = 0; $i < count($pad); $i++) {
+            $elxml.="\t\t<section name=\"" . $pad[$i] . "\" description=\"" . $description[$i] . "\">";
+            $elem = 0;
+            $elem = count($nvarr[$i]);
+            $lishij = $nvarr[$i];
+            for ($h = 0; $h < $elem; $h++) {
+                if ($lishij[$h] != null) {
+                    $val = filter_input(INPUT_POST, $lishij[$h]);
+                    $titu= "title".$pad[$i];
+                    $titu2=$lishij[$h];
+                   // echo $titu2."---".$titu."<br>";
+                    
+                    if($titu2!=$titu)
+                    {
+                        $elxml.="\n\t\t\t<string name=\"" . $lishij[$h] . "\">" . $val . "</string>";
+                        $val = null;
+                    }
+                    else
+                    {
+                         $elxml.="\n\t\t\t<string name=\"title\">" . $val . "</string>";
+                        $val = null;
+                    }
+                }
+            }
+            $elxml.="\n\t\t</section>\n";
+            unset($lishij);
+        }
+        $elxml.="\t</sections>\n</language>";
+        // echo $elxml;
+        $file = fopen("../include/lang/" . $lang . ".lang.xml", "w");
+        fwrite($file, $elxml);
+        fclose($file);
+        ?>
+        <h2><label class='lbl-success'>Guardado con Exito</label></h2>
+        <?php
+        break;
 }
 
-function xml2array($xmlObject, $out = []) {
-    foreach ($xmlObject->attributes() as $attr => $val)
-        $out['@attributes'][$attr] = (string) $val;
-
-    $has_childs = false;
-    foreach ($xmlObject as $index => $node) {
-        $has_childs = true;
-        $out[$index][] = xml2array($node);
-    }
-    if (!$has_childs && $val = (string) $xmlObject)
-        $out['@value'] = $val;
-
-    foreach ($out as $key => $vals) {
-        if (is_array($vals) && count($vals) === 1 && array_key_exists(0, $vals))
-            $out[$key] = $vals[0];
-    }
-    return $out;
-}

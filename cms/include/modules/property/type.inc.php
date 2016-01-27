@@ -1,26 +1,10 @@
 <h2>Tipos</h2> 
-<div class="modal fade" id="respuesta" name="respuesta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" >
-        <div class="modal-content" >
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Respuesta</h4>
-            </div>
-            <div class="modal-body" id="content_e" name="content_e">
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="exampleModalLabel">Editar</h4>
+                        <h4 class="modal-title" id="exampleModalLabel">Editar Localidad</h4>
                     </div>
                     <div class="modal-body">
                         <form id='e_destino' name='e_destino' method='POST'>
@@ -68,10 +52,10 @@ switch ($o) {
     case 0:
         ?>
         <form id='type' name='type' method='POST'>
-            <input type="text" name="op" id="op" value="60" style="visibility:hidden; width: 1px;height: 1px;"/>
+            <input type="text" name="op" id="op" value="60" class="hidden"/>
             <div class="form-caracteristicas">
                 <label for="recipient-name" class="control-label"><h2><i class="fa fa-plus-circle"></i> Nuevo tipo:</h2></label>
-                <input type="text" name="des_name" class="form-actions" style="width: 50%"id="dest_name"/>
+                <input type="text" name="dest_name" class="form-actions" style="width: 50%"id="dest_name"/>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="guradatype();">Guardar</button> 

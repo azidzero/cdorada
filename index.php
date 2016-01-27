@@ -20,40 +20,36 @@ include("inc/app.conf.php");
         <link rel="stylesheet" href="/css/todc-bootstrap.min.css" />
         <link rel="stylesheet" href="/css/font-awesome.min.css" />                
         <link rel="stylesheet" href="/css/website.css" />
-        <link rel="stylesheet" href="/css/section.css" />        
-        <link rel="stylesheet" href="/css/weather.css" />
+        <link rel="stylesheet" href="/css/section.css" />
         <link rel="stylesheet" href="/css/print.css" media="print"  />
-        <link rel="stylesheet" href="/css/component.css" />
-        <link rel="stylesheet" href="/css/slick.css" />
-        <link rel="stylesheet" href="/css/slick-theme.css" />
-
+        <link rel="stylesheet" href="/css/component.css" />        
+        <link rel="stylesheet" href="/css/unslider.css" />
+        <link rel="stylesheet" href="/css/unslider-dots.css" />
+        <link rel="stylesheet" href="/css/jquery.growl.css" />
+        <!-- <link rel="stylesheet" href="/css/loader.css" />-->
         <script src="/js/jquery-1.11.2.min.js"></script>
         <script src="/js/jquery-ui-1.9.2.custom.min.js"></script>
-        <script src="/js/bootstrap.min.js"></script>                                
-        <script src="/js/holder.js"></script>
         <script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en" type="text/javascript" ></script>
-        <script src="/js/gmap3.min.js"></script>        
-        <script src="/js/jquery.simpleWeather.min.js"></script>
-        <script src="/js/main.core.js"></script>
-        <script src="/js/unslider.min.js"></script>
-        <script src="/js/slick.min.js"></script>
+
     </head>
     <body>
-        <?php
-        include("include/web/common/mainnav.inc.php");
-        ?>
-        <div id="main">
+        <div class="container">
             <?php
-            $f = "$include/$m/$s.inc.php";
-            if (file_exists($f)) {
-                include($f);
-            } else {
-                include("$include/404.inc.php");
-            }
+            include("include/web/common/mainnav.inc.php");
+            ?>
+            <div id="main">
+                <?php
+                $f = "$include/$m/$s.inc.php";
+                if (file_exists($f)) {
+                    include($f);
+                } else {
+                    include("$include/404.inc.php");
+                }
+                ?>
+            </div>
+            <?php
+            include("include/web/common/footer.inc.php");
             ?>
         </div>
-        <?php
-        include("include/web/common/footer.inc.php");
-        ?>
     </body>
 </html>

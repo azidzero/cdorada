@@ -1,62 +1,62 @@
-<language name="RU" iso="ES-ES" locale="русский">        
-    <sections>
-        <section name="header">
-            <string name="title">Planet Costa Dorada</string>            
-        </section>
-        <section name="navbar">
-            <string name="responsive-menu">Alternar navegación</string>		
-            <string name="alt-logo">Planet Costa Dorada</string>		
-            <string name="flag-es">Español</string>
-            <string name="flag-en">English</string>
-            <string name="flag-fr">Français</string>
-            <string name="flag-ru">русский</string>
-            <string name="social-facebook">Facebook</string>
-            <string name="social-twitter">Twitter</string>
-            <string name="social-youtube">You Tube</string>
-            <string name="social-google-plus">Google Plus</string>
-            <string name="menu-home">Inicio</string>
-            <string name="menu-property">Propiedades</string>
-            <string name="menu-rent">Alquiler</string>
-            <string name="menu-sale">Venta</string>
-            <string name="menu-deal">Ofertas</string>
-            <string name="menu-owner">Propietarios</string>
-            <string name="menu-content">Actividades</string>
-            <string name="menu-info">Info Viaje</string>
-            <string name="menu-about">Empresa</string>            
-            <string name="menu-contact">Contacto</string>
-        </section>
-        <section name="home">
-            <string name="show-more">Ver Más</string>
-        </section>
-        <section name="filter">
-            <string name="title">Filtro</string>
-            <string name="all-users">Todos</string>
-            <string name="all-mode">Todos</string>
-            <string name="all-type">Todos</string>
-            <string name="placeholder-locate">Seleccionar destino</string>
-            <string name="range">Con un costo entre </string>
-            <string name="filter-rent">en Alquiler</string>
-            <string name="filter-sale">en Venta</string>
-            <string name="filter-deal">en Oferta</string>
-            <string name="search-button">Buscar</string>
-            <string name="search-property">Estoy buscando propiedades </string>
-        </section>        
-        <section name="property">
-            <string name="name">Propiedades</string>
-        </section>        
-        <section name="owner"></section>
-        <section name="content"></section>
-        <section name="about">
-            
-        </section>
-        <section name="contact">
-            <string name="atencion-titulo">Horario de Atención</string>
-        </section>
-        <section name="search">
-            <string name="title">Busqueda</string>
-        </section>
-    </sections>
-    <modules>
-        
-    </modules>
+<language name="RU" ISO="RU-RU" locale="Ruso">
+	<sections>
+		<section name="header" description="Encabezado">
+			<string name="title">Planet Costa Dorada</string>
+		</section>
+		<section name="navbar" description="navegación">
+			<string name="responsive-menu">Alternar navegación</string>
+			<string name="alt-logo">Planet Costa Dorada</string>
+			<string name="flag-es">Español</string>
+			<string name="flag-en">English</string>
+			<string name="flag-fr">Français</string>
+			<string name="flag-ru">русский</string>
+			<string name="social-facebook">Facebook</string>
+			<string name="social-twitter">Twitter</string>
+			<string name="social-youtube">You Tube</string>
+			<string name="social-google-plus">Google Plus</string>
+			<string name="menu-home">инициирование</string>
+			<string name="menu-deal">предложения</string>
+			<string name="menu-owner">патентованный</string>
+			<string name="menu-content">деятельность</string>
+			<string name="menu-info">Информация. Путешествия</string>
+			<string name="menu-about">Бизнес</string>
+			<string name="menu-contact">контакт</string>
+		</section>
+		<section name="home" description="Inicio">
+			<string name="show-morehome">узнать больше</string>
+		</section>
+		<section name="filter" description="Filtro">
+			<string name="title">фильтр</string>
+			<string name="default-place">Местоположение</string>
+			<string name="default-group">люди</string>
+			<string name="default-type">Тип недвижимости</string>
+			<string name="search-button">поиск</string>
+			<string name="label-ref">ссылка</string>
+			<string name="hint-ref">Поиск по ссылке ...</string>
+		</section>
+		<section name="deal" description="Ofertas">
+			<string name="title">Специальные Предложения</string>
+			<string name="label-bedroom">Общежития</string>
+			<string name="label-capacity">мощность</string>
+			<string name="label-bathroom">Туалеты</string>
+			<string name="calendar-title">Наличие Календарь</string>
+			<string name="button-all">Смотреть все предложения</string>
+		</section>
+		<section name="owner" description="Propietarios">
+			<string name="title">Propietarios</string>
+		</section>
+		<section name="activity" description="Actividades">
+			<string name="title">Actividades</string>
+		</section>
+		<section name="info" description="Información del Viaje">
+			<string name="title">Info. Viaje</string>
+		</section>
+		<section name="about" description="Empresa">
+			<string name="titileabout">Empresa</string>
+		</section>
+		<section name="contact" description="Contactanos">
+			<string name="title">контакт</string>
+			<string name="atencion-titulo">Расписание</string>
+		</section>
+	</sections>
 </language>

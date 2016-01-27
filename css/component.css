@@ -29,23 +29,73 @@ and open the template in the editor.
     text-align: center;
     background-color:rgba(231,76,60,0.9);   
 }
+#search{ font-family: 'Raleway',sans-serif; }
+#search .input-group .input-group-addon{height: 32px;padding:4px;}
+#search .input-group .form-control{height: 42px;padding:8px;}
+
 .sidebar input[type=checkbox]{
     border-color:#15C;
 }
-#search-result .carousel{
-    height: 240px;
+#search-result .col-sm-6{
+    min-height: 240px;
 }
-
+#search-result .carousel .carousel-control {
+    color:#FFF;    
+    height: 50%;
+    margin-top:12.5%;
+    padding:8px;    
+    border: none;
+    color:#FFF;
+    width:32px;
+    opacity:0.75;
+    margin-left: -32px;
+    transition: all 0.5s;
+}
+#search-result .carousel .carousel-control.right {
+    margin-right: -32px;
+}
+#search-result .carousel:hover .carousel-control.right {
+    margin-right: 0px;
+}
+#search-result .carousel {
+    width: 100%;
+}
+#search-result .carousel:hover .carousel-control{
+    margin-left: 0px;
+}
 #search-result .item{
     background-size: cover;
     background-position: center;    
     height: 240px;
+    overflow: hidden;
+    width: 100%;
 }
 .box{
-    border:1px solid #CDCDCD;
-    border-radius:8px;
-    margin-bottom: 6px;
+    border-bottom:1px solid #CDCDCD;
+    border-radius:0px;
+    padding:4px;
+    margin-bottom: 0px;
     background:#FFF;
+}
+.box h3{
+    width: 25%;
+    margin:0px;
+    padding:0px;
+    font-family: 'Open Sans',sans-serif;
+    float:right;
+    font-weight: 300;
+    text-align: right;
+    line-height: 0.9;
+}
+.box h4{
+    width: 74%;
+    letter-spacing: 1px;
+    font-size: 16pt;
+}
+.box h4 small{
+    letter-spacing: normal;
+    font-size: 11pt;
+
 }
 /*
 ##### ACTIVIDADES
@@ -57,7 +107,8 @@ and open the template in the editor.
     height: 66vh;
     position:relative;
     background-size:cover;
-    background-attachment: fixed;    
+    background-position: bottom right;
+    /* background-attachment: fixed;    */
 }
 .activity-blog header .title{
     text-align: center;
@@ -118,3 +169,72 @@ and open the template in the editor.
     bottom:90px;
     transition: all 0.5s;
 }
+.input-addon-inverse{
+    background-color:#333;
+    border-radius:4px 0px 0px 4px;
+    border-color:#000;
+}
+.filter-fixed{
+    position: fixed;
+    top:114px;    
+    z-index: 2;
+    transition: all 0.5s;    
+    background:rgba(255,255,255,0.75);
+}
+.filter-fixed >table{
+    background:rgba(255,255,255,0.75) !important;
+}
+.ui-datepicker-group{
+    border-left:1px solid #CCC;    
+}
+.ui-datepicker-header{
+    background-color:#036 !important;
+    color:#FFF !important;
+}
+.ui-datepicker-header a{
+    color:#FF0 !important;
+}
+.fixed-reserva{
+    position: fixed;
+    right:0px;
+    top:0px;    
+    z-index: 2;
+    transition: all 0.5s;    
+    background:rgba(255,255,255,0.75);
+    height: 100vh;
+    overflow-y: scroll;
+}
+/*
+##### MAP DATA
+*/
+#map_area{
+    
+}
+#locate_map{
+    width:100%;
+    height:480px;
+}
+.cluster{        
+    color:#FFF;    
+    font-size:9pt;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+.cluster-1{width:53px;height:52px;background:transparent url('../images/m1.png') no-repeat center;}
+.cluster-2{width:56px;height:55px;background:transparent url('../images/m2.png') no-repeat center;}
+.cluster-3{width:66px;height:65px;background:transparent url('../images/m3.png') no-repeat center;}
+.cluster-4{width:78px;height:77px;background:transparent url('../images/m4.png') no-repeat center;}
+.cluster-5{width:90px;height:89px;background:transparent url('../images/m5.png') no-repeat center;}
+.map-pro{
+    text-align: center;
+    min-width: 200px;
+    background:rgba(255,255,255,0.75);
+    color:#000;
+    border:1px solid rgba(0,0,0,0.5);
+    font-size:9pt;
+    padding:4px;
+    border-radius:4px;    
+}
+.map-pro .text{}
+.map-pro .text >b{font-size:11pt;}

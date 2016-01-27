@@ -225,16 +225,5 @@
         $('#date_out-property').datepicker({dateFormat: 'yy-mm-dd'});
     });
     doSearch('property');
-    function showMap() {
-        var a = $('#result-property').css('left');
-        if (a == 'auto' || a == '0px') {
-            $('#result-property').animate({'left': '-100%'}, 500);
-            $('#result-map').animate({'left': '0px'}, 500);
-            $('#result-map').html("Cargando...");
-            $('#result-map').load('include/modules/web/map-search.home.php');
-        } else {
-            $('#result-property').animate({'left': '0px'}, 500);
-            $('#result-map').animate({'left': '100%'}, 500);
-        }
-    }
+    
 </script>

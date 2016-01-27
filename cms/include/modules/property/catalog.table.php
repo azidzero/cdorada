@@ -1,10 +1,13 @@
 <?php
 
+
+$nt = $_REQUEST['ntbl'];
+
 include("../../../inc/app.conf.php");
-$aColumns = array('id', 'name', 'active','tipo','valor','required', 'unidad');
+$aColumns = array('b.aid', 'a.tipo', 'a.valor', 'a.required', 'a.unidad', 'a.valor', 'b.caption', 'b.lang');
 
 $sIndexColumn = "id";
-$sTable = "cms_property_general";
+$sTable = "cms_addons a ";
 $gaSql['user'] = DBU;
 $gaSql['password'] = DBP;
 $gaSql['db'] = DBB;
@@ -44,7 +47,8 @@ if ($_GET['sSearch'] != "") {
     $sWhere = "";
 }
 
-$sQuery = "SELECT SQL_CALC_FOUND_ROWS " . str_replace(" , ", " ", implode(", ", $aColumns)) . " FROM   $sTable $sWhere $sOrder $sLimit";
+
+$sQuery = "SELECT SQL_CALC_FOUND_ROWS " . str_replace(" , ", " ", implode(", ", $aColumns)) . " FROM   $sTable inner join cms_addon_translate b on (a.id=b.aid)  $sWhere  and b.tname='$nt' and b.lang='es' $sOrder $sLimit";
 $rResult = mysqli_query($cnn, $sQuery) or die("#1 " . $sQuery . "<br/>" . mysqli_error());
 
 // Data set length after filtering
@@ -53,12 +57,13 @@ $rResultFilterTotal = mysqli_query($cnn, $sQuery) or die("#2 " . $sQuery . "<br/
 $aResultFilterTotal = mysqli_fetch_array($rResultFilterTotal);
 $iFilteredTotal = $aResultFilterTotal[0];
 
+
 // Total data set length
-$sQuery = "SELECT COUNT(" . $sIndexColumn . ") FROM $sTable";
+$sQuery = "SELECT COUNT(" . $sIndexColumn . ") FROM  $sTable ";
 $rResultTotal = mysqli_query($cnn, $sQuery) or die("#3 " . $sQuery . "<br/>" . mysqli_error());
 $aResultTotal = mysqli_fetch_array($rResultTotal);
 $iTotal = $aResultTotal[0];
-
+$iTotal=$iTotal/2;
 
 // Output
 $output = array(
@@ -67,52 +72,48 @@ $output = array(
     "iTotalDisplayRecords" => $iFilteredTotal,
     "aaData" => array()
 );
-
-while ($aRow = mysqli_fetch_array($rResult)) 
-{
+$c=1;
+while ($aRow = mysqli_fetch_array($rResult)) {
     $row = array();
-    $row[0] = $aRow['id'];
-    $row[1] = $aRow['name'];
-     if($aRow['tipo']==0)
-     {
-         $row[2]="True/False";
-     }
-     if($aRow['tipo']==1)
-     {
-         $row[2]="Numerico";
-     }
-     if($aRow['tipo']==2)
-     {
-         $row[2]="Texto";
-     }
-     
-    if($aRow['active']==1)
-    {
-        $row[3] = "Activo";
-    }
-    else
-    {
-         $row[3] = "Desactivado";
-    }
-   if($aRow['required']==1)
-    {
-        $row[4] = "Requerido";
-    }
-    else
-    {
-         $row[4] = "No Requerido";
-    }
-    $row[5] = $aRow['unidad'];
-    $row[6] = $aRow['valor'];      
-        $row[7] = "<div class=\"btn-group\">";
-        $row[7] .= "<button type=\"button\" class=\"btn btn-warning dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"false\">Opciones <span class=\"caret\"></span></button >";
-        $row[7] .= "<ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">";
-        $row[7] .= "<li><a href=\"JavaScript:void(0)\" onclick=\"getJson('{$aRow[0]}','0')\"><i class=\"fa fa-edit\"></i>Editar</a></li>";
-        $row[7] .= "<li><a href=\"JavaScript:void(0)\" onclick=\"jsonid('{$aRow[0]}')\"><i class=\"fa fa-trash\"></i> Eliminar</a></li>";
-        $row[7] .= "</ul>";
-        $row[7] .= "</div>";   
-    $output['aaData'][] = $row;
+        $row[0] = $aRow['aid'];
+        $row[1] = "<p class='text-uppercase'><b>" . $aRow['caption'] . "</b></p>";
+        if ($aRow['tipo'] == 0) {
+            $row[2] = "True/False";
+        }
+        if ($aRow['tipo'] == 1) {
+            $row[2] = "Numerico";
+        }
+        if ($aRow['tipo'] == 2) {
+            $row[2] = "Texto";
+        }
+         if ($aRow['tipo'] == 3) {
+            $row[2] = "Multiple";
+        }
+         if ($aRow['tipo'] == 4) {
+            $row[2] = "Cuadro de Texto";
+        }
+         if ($aRow['tipo'] == 5) {
+            $row[2] = "SUMA";
+        }
+        if ($aRow['required'] == 1) {
+            $row[3] = "<b>Requerido</b>";
+        } else {
+            $row[3] = "No Requerido";
+        }
+        $row[4] = $aRow['unidad'];
+        $row[5] = $aRow['valor'];
+        $row[6] = "<div class=\"btn-group\">";
+        $row[6] .= "<button type=\"button\" class=\"btn btn-warning dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"false\">Opciones <span class=\"caret\"></span></button >";
+        $row[6] .= "<ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">";
+        $row[6] .= "<li><a href=\"JavaScript:void(0)\" onclick=\"edit_addon('{$aRow['aid']}','1')\"><i class=\"fa fa-edit\"></i>Editar</a></li>";
+         if ($aRow['tipo'] == 5) {
+        $row[6] .= "<li><a href=\"JavaScript:void(0)\" onclick=\"issuma('{$aRow[0]}','$nt')\"><i class=\"fa fa-list-ol\"></i>Campos de suma</a></li>";
+         }
+         $row[6] .= "<li><a href=\"JavaScript:void(0)\" onclick=\"deladon('{$aRow[0]}','3')\"><i class=\"fa fa-trash\"></i> Eliminar</a></li>";
+        $row[6] .= "</ul>";
+        $row[6] .= "</div>";
+        $output['aaData'][] = $row;
+        $c++;
+    
 }
-
 echo json_encode($output);
-?>

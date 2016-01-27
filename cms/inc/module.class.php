@@ -13,15 +13,14 @@ class MODULE {
     public $icon;
     public $section = Array();
     public $option = Array();
+    public $public = true;
 
     function __construct() {
         $this->addSection("Inicio", "home", "home");
         // $this->addOption("home", "", 0, "dashboard");
     }
 
-    
-
-    function addSection($name, $url, $icon="") {
+    function addSection($name, $url, $icon = "") {
         $arr = Array("name" => $name, "url" => $url, "icon" => $icon);
         $this->section[] = $arr;
     }

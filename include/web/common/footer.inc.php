@@ -48,3 +48,15 @@
         </div>
     </div>
 </footer>
+
+
+<script src="/js/bootstrap.min.js"></script>                                
+<script src="/js/holder.js"></script>
+
+<script src="/js/gmap3.min.js"></script>                
+<script src="/js/unslider-min.js"></script>
+<script src="/js/slick.min.js"></script>
+<script src="/js/jquery.growl.js"></script>
+<script src="/js/main.core.js"></script>
+<script src="/js/card.js"></script>
+<script src="/js/jquery.jscroll.min.js"></script>

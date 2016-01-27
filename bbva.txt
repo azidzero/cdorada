@@ -1,0 +1,14 @@
+COSTA DORADA 
+
+#ACTIVIDADES
+	agrupar como por categorias
+		editar y modificar categorias 
+		agregar galeria
+		agregar videos
+#INFO Viaje
+	Galeria
+	Videos
+	Tamaño de imagen de portada
+	* revisar tamaño de imagen al subir
+	
+	

@@ -11,22 +11,21 @@ class MODULE {
     public $name;
     public $url;
     public $icon;
-    public $desc = "";
-    private $section = Array();
+    public $section = Array();
+    public $option = Array();
+    public $public = true;
 
     function __construct() {
-        //$this->addSection("Inicio", "home", "home");
-        //$this->addOption("home", "", 0, "dashboard");
+        $this->addSection("Inicio", "home", "home");
+        // $this->addOption("home", "", 0, "dashboard");
     }
 
-    private $option = Array();
-
-    function addSection($name, $url, $icon = "default") {
+    function addSection($name, $url, $icon = "") {
         $arr = Array("name" => $name, "url" => $url, "icon" => $icon);
         $this->section[] = $arr;
     }
 
-    function addOption($section, $name, $url, $icon) {
+    function addOption($section, $name, $url, $icon = '') {
         $arr = Array("name" => $name, "url" => $url, "icon" => $icon);
         $this->option[$section][] = $arr;
     }
@@ -38,8 +37,6 @@ class MODULE {
     function getOption($section) {
         if (isset($this->option[$section])) {
             return $this->option[$section];
-        }else{
-            return false;
         }
     }
 
